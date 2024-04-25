@@ -13,6 +13,7 @@ br\com\projeto\view\FrmClient$15.class
 br\com\projeto\view\FrmClient$5.class
 br\com\projeto\view\FrmClient$2.class
 br\com\projeto\view\FrmClient$13.class
+br\com\projeto\view\FrmClient$23.class
 br\com\projeto\view\FrmClient$21.class
 br\com\projeto\view\FrmClient$1.class
 br\com\projeto\view\FrmClient$18.class
@@ -21,6 +22,7 @@ br\com\projeto\view\FrmClient$8.class
 br\com\projeto\jdbc\TestaConexao.class
 br\com\projeto\view\FrmClient$11.class
 br\com\projeto\view\FrmClient$4.class
+br\com\projeto\view\FrmClient$24.class
 br\com\projeto\view\FrmClient$3.class
 br\com\projeto\view\FrmClient$14.class
 br\com\projeto\jdbc\ConnectionFactory.class

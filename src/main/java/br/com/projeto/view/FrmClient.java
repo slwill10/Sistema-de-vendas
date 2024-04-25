@@ -66,7 +66,7 @@ public class FrmClient extends javax.swing.JFrame {
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        código = new javax.swing.JTextField();
+        txtcodigo = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         txtnome = new javax.swing.JTextField();
         txtemail = new javax.swing.JTextField();
@@ -78,7 +78,7 @@ public class FrmClient extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         txtcep = new javax.swing.JFormattedTextField();
         txtend = new javax.swing.JLabel();
-        Email2 = new javax.swing.JTextField();
+        txtendereco = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         txtnumero = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
@@ -145,10 +145,10 @@ public class FrmClient extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel2.setText("Código:");
 
-        código.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        código.addActionListener(new java.awt.event.ActionListener() {
+        txtcodigo.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtcodigo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                códigoActionPerformed(evt);
+                txtcodigoActionPerformed(evt);
             }
         });
 
@@ -210,10 +210,10 @@ public class FrmClient extends javax.swing.JFrame {
         txtend.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txtend.setText("Endereço");
 
-        Email2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        Email2.addActionListener(new java.awt.event.ActionListener() {
+        txtendereco.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtendereco.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Email2ActionPerformed(evt);
+                txtenderecoActionPerformed(evt);
             }
         });
 
@@ -314,6 +314,11 @@ public class FrmClient extends javax.swing.JFrame {
 
         BtnEditar.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         BtnEditar.setText("EDITAR");
+        BtnEditar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnEditarActionPerformed(evt);
+            }
+        });
 
         BtnExcluir.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         BtnExcluir.setText("EXCLUIR");
@@ -335,7 +340,7 @@ public class FrmClient extends javax.swing.JFrame {
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(jLabel2)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(código, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(txtcodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(jLabel3)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -363,7 +368,7 @@ public class FrmClient extends javax.swing.JFrame {
                                             .addGroup(jPanel2Layout.createSequentialGroup()
                                                 .addComponent(txtend)
                                                 .addGap(6, 6, 6)
-                                                .addComponent(Email2, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addComponent(txtendereco, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE))
                                             .addGroup(jPanel2Layout.createSequentialGroup()
                                                 .addComponent(jLabel11)
                                                 .addGap(3, 3, 3)
@@ -419,7 +424,7 @@ public class FrmClient extends javax.swing.JFrame {
                 .addGap(55, 55, 55)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(código, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtcodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
@@ -437,7 +442,7 @@ public class FrmClient extends javax.swing.JFrame {
                     .addComponent(jLabel7)
                     .addComponent(txtcep, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtend)
-                    .addComponent(Email2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtendereco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel9)
                     .addComponent(txtnumero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
@@ -497,6 +502,11 @@ public class FrmClient extends javax.swing.JFrame {
                 "Código", "Nome", "RG", "E-mail", "Telefone", "Celular", "CEP", "Endereço ", "N°", "Comp", "Bairro", "Cidade", "UF"
             }
         ));
+        tabelaClientes.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tabelaClientesMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tabelaClientes);
 
         btnNovo1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -597,9 +607,9 @@ public class FrmClient extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void códigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_códigoActionPerformed
+    private void txtcodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtcodigoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_códigoActionPerformed
+    }//GEN-LAST:event_txtcodigoActionPerformed
 
     private void txtnomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtnomeActionPerformed
         // TODO add your handling code here:
@@ -613,9 +623,9 @@ public class FrmClient extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtcepActionPerformed
 
-    private void Email2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Email2ActionPerformed
+    private void txtenderecoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtenderecoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_Email2ActionPerformed
+    }//GEN-LAST:event_txtenderecoActionPerformed
 
     private void txtnumeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtnumeroActionPerformed
         // TODO add your handling code here:
@@ -664,7 +674,7 @@ public class FrmClient extends javax.swing.JFrame {
             obj.setTelefone(txttelefone.getText());
             obj.setCelular(txtcelular.getText());
             obj.setCep(txtcep.getText());
-            obj.setEndereco(txtend.getText());
+            obj.setEndereco(txtendereco.getText());
             obj.setNumero(Integer.parseInt(txtnumero.getText()));
             obj.setComplemento(txtcomplemento.getText());
             obj.setBairro(txtbairro.getText());
@@ -677,7 +687,14 @@ public class FrmClient extends javax.swing.JFrame {
     }//GEN-LAST:event_BtnSalvarActionPerformed
 
     private void BtnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnExcluirActionPerformed
-        // TODO add your handling code here:
+        // botão excluir
+        
+         Clientes obj = new Clientes();
+                
+            obj.setId(Integer.parseInt(txtcodigo.getText()));
+            
+            ClientesDAO dao = new ClientesDAO();
+            dao.excluirCliente(obj);
     }//GEN-LAST:event_BtnExcluirActionPerformed
 
     private void cbufActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbufActionPerformed
@@ -701,6 +718,49 @@ public class FrmClient extends javax.swing.JFrame {
         listar();
         
     }//GEN-LAST:event_formWindowActivated
+
+    private void tabelaClientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaClientesMouseClicked
+        // Pega os dados
+        jTabbedPane1.setSelectedIndex(0);
+        txtcodigo.setText(tabelaClientes.getValueAt(tabelaClientes.getSelectedRow(), 0).toString());
+        txtnome.setText(tabelaClientes.getValueAt(tabelaClientes.getSelectedRow(), 1).toString());
+        txtrg.setText(tabelaClientes.getValueAt(tabelaClientes.getSelectedRow(), 2).toString());
+        txtemail.setText(tabelaClientes.getValueAt(tabelaClientes.getSelectedRow(), 3).toString());
+        txttelefone.setText(tabelaClientes.getValueAt(tabelaClientes.getSelectedRow(), 4).toString());
+        txtcelular.setText(tabelaClientes.getValueAt(tabelaClientes.getSelectedRow(), 5).toString());
+        txtcep.setText(tabelaClientes.getValueAt(tabelaClientes.getSelectedRow(), 6).toString());
+        txtendereco.setText(tabelaClientes.getValueAt(tabelaClientes.getSelectedRow(), 7).toString());
+        txtnumero.setText(tabelaClientes.getValueAt(tabelaClientes.getSelectedRow(), 8).toString());
+        txtcomplemento.setText(tabelaClientes.getValueAt(tabelaClientes.getSelectedRow(), 9).toString());
+        txtbairro.setText(tabelaClientes.getValueAt(tabelaClientes.getSelectedRow(), 10).toString());
+        txtcidade.setText(tabelaClientes.getValueAt(tabelaClientes.getSelectedRow(), 11).toString());
+        cbuf.setSelectedItem(tabelaClientes.getValueAt(tabelaClientes.getSelectedRow(), 12).toString());
+    }//GEN-LAST:event_tabelaClientesMouseClicked
+
+    private void BtnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEditarActionPerformed
+        // Botão editar
+        
+         Clientes obj = new Clientes();
+         
+            obj.setNome(txtnome.getText());
+            obj.setRg(txtrg.getText());
+            obj.setCpf(txtcpf.getText());
+            obj.setEmail(txtemail.getText());
+            obj.setTelefone(txttelefone.getText());
+            obj.setCelular(txtcelular.getText());
+            obj.setCep(txtcep.getText());
+            obj.setEndereco(txtendereco.getText());
+            obj.setNumero(Integer.parseInt(txtnumero.getText()));
+            obj.setComplemento(txtcomplemento.getText());
+            obj.setBairro(txtbairro.getText());
+            obj.setCidade(txtcidade.getText());
+            obj.setUf(cbuf.getSelectedItem().toString());
+            
+            obj.setId(Integer.parseInt(txtcodigo.getText()));
+                        
+            ClientesDAO dao = new ClientesDAO();
+            dao.alterarCliente(obj);
+    }//GEN-LAST:event_BtnEditarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -744,11 +804,9 @@ public class FrmClient extends javax.swing.JFrame {
     private javax.swing.JButton BtnExcluir1;
     private javax.swing.JButton BtnSalvar;
     private javax.swing.JButton BtnSalvar1;
-    private javax.swing.JTextField Email2;
     private javax.swing.JButton btnNovo;
     private javax.swing.JButton btnNovo1;
     private javax.swing.JComboBox<String> cbuf;
-    private javax.swing.JTextField código;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -776,10 +834,12 @@ public class FrmClient extends javax.swing.JFrame {
     private javax.swing.JFormattedTextField txtcelular;
     private javax.swing.JFormattedTextField txtcep;
     private javax.swing.JTextField txtcidade;
+    private javax.swing.JTextField txtcodigo;
     private javax.swing.JTextField txtcomplemento;
     private javax.swing.JFormattedTextField txtcpf;
     private javax.swing.JTextField txtemail;
     private javax.swing.JLabel txtend;
+    private javax.swing.JTextField txtendereco;
     private javax.swing.JTextField txtnome;
     private javax.swing.JTextField txtnumero;
     private javax.swing.JFormattedTextField txtrg;
