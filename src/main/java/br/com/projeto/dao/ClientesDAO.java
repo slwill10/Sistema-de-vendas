@@ -19,18 +19,18 @@ import javax.swing.JOptionPane;
  * @author Willian
  */
 public class ClientesDAO {
-    
+
     private Connection con;
-    
-    public ClientesDAO(){
+
+    public ClientesDAO() {
         this.con = new ConnectionFactory().getConnection();
     }
-    
+
     //Método cadastrar cliente 
     public void cadastrarCliente(Clientes obj) {
         try {
             String sql = "insert into tb_clientes (nome, rg, cpf, email, telefone, celular, cep, endereco, numero, complemento, bairro, cidade, estado)" + "values(?,?,?,?,?,?,?,?,?,?,?,?,?);";
-            
+
             PreparedStatement stmt = con.prepareStatement(sql);
             stmt.setString(1, obj.getNome());
             stmt.setString(2, obj.getRg());
@@ -45,39 +45,41 @@ public class ClientesDAO {
             stmt.setString(11, obj.getBairro());
             stmt.setString(12, obj.getCidade());
             stmt.setString(13, obj.getEstado());
-            
+
             stmt.execute();
             stmt.close();
-            
+
             JOptionPane.showMessageDialog(null, "Cadastrado com sucesso");
-            
+
         } catch (SQLException erro) {
             JOptionPane.showMessageDialog(null, "erro" + erro);
         }
     }
 
     //método alterar cliente
-    public void alterarCliente(){}
-    
+    public void alterarCliente() {
+    }
+
     //método excluir cliente
-    public void excluirCliente(){}
-    
+    public void excluirCliente() {
+    }
+
     //Método listar todos os clientes
-    public List<Clientes> listarClientes(){
-        
+    public List<Clientes> listarClientes() {
+
         try {
-            
+
             //Criar a lista
             List<Clientes> lista = new ArrayList<>();
-            
+
             // Criar o comando SQL, organizar e excutar
-            String sql = "select * from tb_clientes;";            
-            PreparedStatement stmt = con.prepareStatement(sql);           
+            String sql = "select * from tb_clientes;";
+            PreparedStatement stmt = con.prepareStatement(sql);
             ResultSet rs = stmt.executeQuery();
-            
-            while(rs.next()){
+
+            while (rs.next()) {
                 Clientes obj = new Clientes();
-                
+
                 obj.setId(rs.getInt("id"));
                 obj.setNome(rs.getString("nome"));
                 obj.setRg(rs.getString("rg"));
@@ -91,19 +93,19 @@ public class ClientesDAO {
                 obj.setComplemento(rs.getString("complemento"));
                 obj.setBairro(rs.getString("bairro"));
                 obj.setCidade(rs.getString("cidade"));
-                obj.setUf(rs.getString("uf"));
-                
+                obj.setUf(rs.getString("estado"));
+
                 lista.add(obj);
-               
+
             }
-            
+
             return lista;
-           
+
         } catch (Exception erro) {
             JOptionPane.showMessageDialog(null, "Erro: " + erro);
             return null;
         }
-        
+
     }
-    
+
 }

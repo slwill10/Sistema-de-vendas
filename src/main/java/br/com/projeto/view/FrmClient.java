@@ -6,12 +6,44 @@ package br.com.projeto.view;
 
 import br.com.projeto.dao.ClientesDAO;
 import br.com.projeto.model.Clientes;
+import java.util.List;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author Willian
  */
 public class FrmClient extends javax.swing.JFrame {
+    
+    // Método listar na tabela
+    
+    public void listar() {
+        ClientesDAO dao = new ClientesDAO();
+        List<Clientes> lista = dao.listarClientes();
+        DefaultTableModel dados = (DefaultTableModel) tabelaClientes.getModel();
+        dados.setNumRows(0);
+        
+        for(Clientes c : lista){
+            
+            dados.addRow(new Object[]{
+                c.getId(),
+                c.getNome(),
+                c.getRg(),
+                c.getCpf(),
+                c.getEmail(),
+                c.getTelefone(),
+                c.getCelular(),
+                c.getCep(),
+                c.getEndereco(),
+                c.getNumero(),
+                c.getComplemento(),
+                c.getBairro(),
+                c.getCidade(),
+                c.getUf()
+            });   
+        }
+        
+    }
 
     /**
      * Creates new form FrmClient
@@ -70,9 +102,18 @@ public class FrmClient extends javax.swing.JFrame {
         jLabel16 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tabelaClientes = new javax.swing.JTable();
+        btnNovo1 = new javax.swing.JButton();
+        BtnSalvar1 = new javax.swing.JButton();
+        BtnEditar1 = new javax.swing.JButton();
+        BtnExcluir1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowActivated(java.awt.event.WindowEvent evt) {
+                formWindowActivated(evt);
+            }
+        });
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 255));
 
@@ -448,7 +489,7 @@ public class FrmClient extends javax.swing.JFrame {
             }
         });
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tabelaClientes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -456,7 +497,34 @@ public class FrmClient extends javax.swing.JFrame {
                 "Código", "Nome", "RG", "E-mail", "Telefone", "Celular", "CEP", "Endereço ", "N°", "Comp", "Bairro", "Cidade", "UF"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tabelaClientes);
+
+        btnNovo1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btnNovo1.setText("NOVO");
+        btnNovo1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNovo1ActionPerformed(evt);
+            }
+        });
+
+        BtnSalvar1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        BtnSalvar1.setText("SALVAR");
+        BtnSalvar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnSalvar1ActionPerformed(evt);
+            }
+        });
+
+        BtnEditar1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        BtnEditar1.setText("EDITAR");
+
+        BtnExcluir1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        BtnExcluir1.setText("EXCLUIR");
+        BtnExcluir1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnExcluir1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -474,6 +542,17 @@ public class FrmClient extends javax.swing.JFrame {
                         .addComponent(jButton1)
                         .addGap(0, 511, Short.MAX_VALUE)))
                 .addContainerGap())
+            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel3Layout.createSequentialGroup()
+                    .addGap(368, 368, 368)
+                    .addComponent(btnNovo1, javax.swing.GroupLayout.DEFAULT_SIZE, 84, Short.MAX_VALUE)
+                    .addGap(12, 12, 12)
+                    .addComponent(BtnSalvar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(BtnEditar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(BtnExcluir1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGap(384, 384, 384)))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -486,6 +565,15 @@ public class FrmClient extends javax.swing.JFrame {
                 .addGap(32, 32, 32)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(373, Short.MAX_VALUE))
+            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel3Layout.createSequentialGroup()
+                    .addGap(270, 270, 270)
+                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btnNovo1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(BtnSalvar1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(BtnEditar1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(BtnExcluir1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addContainerGap(271, Short.MAX_VALUE)))
         );
 
         jTabbedPane1.addTab("Consulta de clientes", jPanel3);
@@ -596,6 +684,24 @@ public class FrmClient extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_cbufActionPerformed
 
+    private void btnNovo1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovo1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnNovo1ActionPerformed
+
+    private void BtnSalvar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSalvar1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BtnSalvar1ActionPerformed
+
+    private void BtnExcluir1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnExcluir1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BtnExcluir1ActionPerformed
+
+    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
+        // Carrega a lista
+        listar();
+        
+    }//GEN-LAST:event_formWindowActivated
+
     /**
      * @param args the command line arguments
      */
@@ -633,10 +739,14 @@ public class FrmClient extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnEditar;
+    private javax.swing.JButton BtnEditar1;
     private javax.swing.JButton BtnExcluir;
+    private javax.swing.JButton BtnExcluir1;
     private javax.swing.JButton BtnSalvar;
+    private javax.swing.JButton BtnSalvar1;
     private javax.swing.JTextField Email2;
     private javax.swing.JButton btnNovo;
+    private javax.swing.JButton btnNovo1;
     private javax.swing.JComboBox<String> cbuf;
     private javax.swing.JTextField código;
     private javax.swing.JButton jButton1;
@@ -660,8 +770,8 @@ public class FrmClient extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField9;
+    private javax.swing.JTable tabelaClientes;
     private javax.swing.JTextField txtbairro;
     private javax.swing.JFormattedTextField txtcelular;
     private javax.swing.JFormattedTextField txtcep;
