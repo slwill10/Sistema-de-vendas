@@ -45,6 +45,7 @@ br\com\projeto\view\FrmClient$25.class
 br\com\projeto\model\WebServiceCep$Xml$7.class
 br\com\projeto\model\Funcionarios.class
 br\com\projeto\model\WebServiceCep$Xml$4.class
+br\com\projeto\dao\ResultSet.class
 br\com\projeto\view\FrmFuncionarios$2.class
 br\com\projeto\model\WebServiceCep$IterableElement.class
 br\com\projeto\view\FrmClient$5.class
