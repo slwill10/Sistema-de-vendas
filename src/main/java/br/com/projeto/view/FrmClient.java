@@ -7,6 +7,7 @@ package br.com.projeto.view;
 import br.com.projeto.dao.ClientesDAO;
 import br.com.projeto.model.Clientes;
 import br.com.projeto.model.Utilitarios;
+import java.awt.event.KeyEvent;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -214,6 +215,11 @@ public class FrmClient extends javax.swing.JFrame {
                 txtcepActionPerformed(evt);
             }
         });
+        txtcep.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtcepKeyPressed(evt);
+            }
+        });
 
         txtend.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txtend.setText("Endereço");
@@ -269,7 +275,7 @@ public class FrmClient extends javax.swing.JFrame {
         jLabel13.setText("UF:");
 
         cbuf.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        cbuf.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SP ", "BSB", "MG", "RJ" }));
+        cbuf.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", "RJ", "RN", "RS", "RO", "RR", "SC", "SP", "SE", "TO" }));
         cbuf.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cbufActionPerformed(evt);
@@ -725,12 +731,12 @@ public class FrmClient extends javax.swing.JFrame {
 
         // Tratamento de erro caso a pessoa digite algo que não seja número.
         String numeroStr = txtnumero.getText();
-        int numero = 0; 
+        int numero = 0;
         try {
             numero = Integer.parseInt(numeroStr);
         } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(null, "Por favor, insira um número válido para o numero.", "Erro", JOptionPane.ERROR_MESSAGE);
-            return; 
+            return;
         }
 
         Clientes obj = new Clientes();
@@ -751,7 +757,6 @@ public class FrmClient extends javax.swing.JFrame {
         ClientesDAO dao = new ClientesDAO();
         dao.cadastrarCliente(obj);
 
-        
         new Utilitarios().limpaTela(painel_dados);
     }//GEN-LAST:event_BtnSalvarActionPerformed
 
@@ -764,7 +769,7 @@ public class FrmClient extends javax.swing.JFrame {
 
         ClientesDAO dao = new ClientesDAO();
         dao.excluirCliente(obj);
-        
+
         new Utilitarios().limpaTela(painel_dados);
     }//GEN-LAST:event_BtnExcluirActionPerformed
 
@@ -843,15 +848,14 @@ public class FrmClient extends javax.swing.JFrame {
 
     private void btnbuscaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbuscaActionPerformed
         // btn buscar cliente por nome
-        
+
         String nome = txtnome.getText();
         Clientes obj = new Clientes();
         ClientesDAO dao = new ClientesDAO();
-        
+
         obj = dao.consultaPorNome(nome);
-        
+
         // Exibir os dados do obj nos campos de texto
-        
         txtcodigo.setText(String.valueOf(obj.getId()));
         txtnome.setText(obj.getNome());
         txtrg.setText(obj.getRg());
@@ -874,6 +878,20 @@ public class FrmClient extends javax.swing.JFrame {
     private void jTabbedPane1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTabbedPane1MouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_jTabbedPane1MouseClicked
+
+    private void txtcepKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtcepKeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            Clientes obj = new Clientes();
+            ClientesDAO dao = new ClientesDAO();
+            obj = dao.buscaCep(txtcep.getText());
+
+            txtendereco.setText(obj.getEndereco());
+            txtbairro.setText(obj.getBairro());
+            txtcidade.setText(obj.getCidade());
+            cbuf.setSelectedItem(obj.getUf());
+
+        }
+    }//GEN-LAST:event_txtcepKeyPressed
 
     /**
      * @param args the command line arguments
