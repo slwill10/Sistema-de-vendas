@@ -61,7 +61,7 @@ public class ClientesDAO {
         try {
             String sql = "update tb_clientes set nome=?, rg=?, cpf=?, email=?, telefone=?, celular=?, cep=?, endereco=?, numero=?, complemento=?, bairro=?, cidade=?, estado=? where id=?";
             PreparedStatement stmt = con.prepareStatement(sql);
-            
+
             stmt.setString(1, obj.getNome());
             stmt.setString(2, obj.getRg());
             stmt.setString(3, obj.getCpf());
@@ -148,20 +148,18 @@ public class ClientesDAO {
         }
 
     }
-    
-    // Método buscar cliente por nome
-    public List<Clientes> buscarClientePorNome(String nome) {
+
+    // método consultaCliente por nome
+    public Clientes consultaPorNome(String nome) {
         try {
-            List<Clientes> lista = new ArrayList();
-            
-            String sql = "select * from tb_clientes where nome like ?";
+            String sql = "select * from tb_clientes where nome = ?";
             PreparedStatement stmt = con.prepareStatement(sql);
             stmt.setString(1, nome);
             ResultSet rs = stmt.executeQuery();
+            Clientes obj = new Clientes();
             
-            while(rs.next()){
-                Clientes obj = new Clientes();
-                
+            if (rs.next()) {
+
                 obj.setId(rs.getInt("id"));
                 obj.setNome(rs.getString("nome"));
                 obj.setRg(rs.getString("rg"));
@@ -175,12 +173,48 @@ public class ClientesDAO {
                 obj.setBairro(rs.getString("bairro"));
                 obj.setCidade(rs.getString("cidade"));
                 obj.setUf(rs.getString("estado"));
-                
+            }
+
+            return obj;
+
+        } catch (Exception e) {
+             JOptionPane.showInternalInputDialog(null, "Cliente não encontrado!");
+             return null;
+        }
+    }
+
+    // Método buscar cliente por nome
+    public List<Clientes> buscarClientePorNome(String nome) {
+        try {
+            List<Clientes> lista = new ArrayList();
+
+            String sql = "select * from tb_clientes where nome like ?";
+            PreparedStatement stmt = con.prepareStatement(sql);
+            stmt.setString(1, nome);
+            ResultSet rs = stmt.executeQuery();
+
+            while (rs.next()) {
+                Clientes obj = new Clientes();
+
+                obj.setId(rs.getInt("id"));
+                obj.setNome(rs.getString("nome"));
+                obj.setRg(rs.getString("rg"));
+                obj.setEmail(rs.getString("email"));
+                obj.setTelefone(rs.getString("telefone"));
+                obj.setCelular(rs.getString("celular"));
+                obj.setCep(rs.getString("cep"));
+                obj.setEndereco(rs.getString("endereco"));
+                obj.setNumero(rs.getInt("numero"));
+                obj.setComplemento(rs.getString("complemento"));
+                obj.setBairro(rs.getString("bairro"));
+                obj.setCidade(rs.getString("cidade"));
+                obj.setUf(rs.getString("estado"));
+
                 lista.add(obj);
             }
-            
+
             return lista;
-            
+
         } catch (Exception erro) {
             JOptionPane.showMessageDialog(null, "Erro:" + erro);
             return null;
