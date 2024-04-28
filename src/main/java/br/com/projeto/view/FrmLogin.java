@@ -34,7 +34,6 @@ public class FrmLogin extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         txtemail = new javax.swing.JTextField();
         txtsenha = new javax.swing.JPasswordField();
-        jButton1 = new javax.swing.JButton();
         btnentrar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -67,14 +66,6 @@ public class FrmLogin extends javax.swing.JFrame {
 
         txtsenha.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
-        jButton1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jButton1.setText("SAIR");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-
         btnentrar.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         btnentrar.setText("ENTRAR");
         btnentrar.addActionListener(new java.awt.event.ActionListener() {
@@ -102,10 +93,8 @@ public class FrmLogin extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(txtemail, javax.swing.GroupLayout.PREFERRED_SIZE, 498, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(218, 218, 218)
-                        .addComponent(btnentrar)
-                        .addGap(39, 39, 39)
-                        .addComponent(jButton1)))
+                        .addGap(300, 300, 300)
+                        .addComponent(btnentrar)))
                 .addContainerGap(308, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -120,11 +109,9 @@ public class FrmLogin extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(txtsenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(35, 35, 35)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(btnentrar))
-                .addGap(0, 240, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(btnentrar)
+                .addGap(0, 257, Short.MAX_VALUE))
         );
 
         pack();
@@ -138,10 +125,6 @@ public class FrmLogin extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtemailActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
-
     private void btnentrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnentrarActionPerformed
         // btn entrar
         
@@ -154,6 +137,7 @@ public class FrmLogin extends javax.swing.JFrame {
             FuncionariosDAO dao = new FuncionariosDAO();
             
             dao.efetuaLogin(email, senha);
+            this.dispose();
             
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Error: " + e);
@@ -197,7 +181,6 @@ public class FrmLogin extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnentrar;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JTextField jTextField1;

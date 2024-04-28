@@ -6,6 +6,7 @@ package br.com.projeto.dao;
 
 import br.com.projeto.jdbc.ConnectionFactory;
 import br.com.projeto.model.Funcionarios;
+import br.com.projeto.view.FrmLogin;
 import br.com.projeto.view.FrmMenu;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -245,18 +246,22 @@ public class FuncionariosDAO {
             stmt.setString(2, senha);
             ResultSet rs = stmt.executeQuery();
 
-            if (rs.next()) {
+            if (rs.next()) { 
                 JOptionPane.showMessageDialog(null, "Seja bem vindo ao sistema!");
                 FrmMenu tela = new FrmMenu();
+                tela.usarioLogado = rs.getString("nome");
                 tela.setVisible(true);
             } else {
                 JOptionPane.showMessageDialog(null, "Não foi possível logar!");
+                new FrmLogin().setVisible(true);
             }
-
+            
         } catch (Exception e) {
             
            JOptionPane.showMessageDialog(null, "Error: " + e);
         }
     }
+    
+    
 
 }
