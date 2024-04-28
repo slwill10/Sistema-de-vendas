@@ -1,9 +1,12 @@
 D:\Willian\Documents\NetBeansProjects\projeto-vendas\src\main\java\br\com\projeto\dao\FuncionariosDAO.java
+D:\Willian\Documents\NetBeansProjects\projeto-vendas\src\main\java\br\com\projeto\dao\FornecedoresDAO.java
 D:\Willian\Documents\NetBeansProjects\projeto-vendas\src\main\java\br\com\projeto\dao\ClientesDAO.java
 D:\Willian\Documents\NetBeansProjects\projeto-vendas\src\main\java\br\com\projeto\view\FrmLogin.java
 D:\Willian\Documents\NetBeansProjects\projeto-vendas\src\main\java\br\com\projeto\view\FrmMenu.java
 D:\Willian\Documents\NetBeansProjects\projeto-vendas\src\main\java\br\com\projeto\jdbc\ConnectionFactory.java
 D:\Willian\Documents\NetBeansProjects\projeto-vendas\src\main\java\br\com\projeto\model\Clientes.java
+D:\Willian\Documents\NetBeansProjects\projeto-vendas\src\main\java\br\com\projeto\view\FrmFornecedores.java
+D:\Willian\Documents\NetBeansProjects\projeto-vendas\src\main\java\br\com\projeto\model\Fornecedores.java
 D:\Willian\Documents\NetBeansProjects\projeto-vendas\src\main\java\br\com\projeto\view\FrmClient.java
 D:\Willian\Documents\NetBeansProjects\projeto-vendas\src\main\java\br\com\projeto\jdbc\TestaConexao.java
 D:\Willian\Documents\NetBeansProjects\projeto-vendas\src\main\java\br\com\projeto\model\Utilitarios.java
