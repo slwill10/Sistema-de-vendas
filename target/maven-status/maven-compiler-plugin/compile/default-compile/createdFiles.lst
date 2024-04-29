@@ -47,7 +47,6 @@ br\com\projeto\dao\ClientesDAO.class
 br\com\projeto\view\FrmClient$9.class
 br\com\projeto\view\FrmClient$15.class
 br\com\projeto\model\WebServiceCep$Xml$7.class
-br\com\projeto\dao\ResultSet.class
 br\com\projeto\view\FrmFuncionarios$16.class
 br\com\projeto\view\FrmProdutos$17.class
 br\com\projeto\view\FrmMenu$4.class
@@ -71,6 +70,7 @@ br\com\projeto\view\FrmProdutos$21.class
 br\com\projeto\view\FrmFornecedores$12.class
 br\com\projeto\view\FrmProdutos$16.class
 br\com\projeto\view\FrmFuncionarios$34.class
+br\com\projeto\dao\ProdutosDAO.class
 br\com\projeto\view\FrmProdutos$10.class
 br\com\projeto\view\FrmFornecedores$8.class
 br\com\projeto\model\Utilitarios.class
