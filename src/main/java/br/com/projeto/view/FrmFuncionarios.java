@@ -479,18 +479,15 @@ public class FrmFuncionarios extends javax.swing.JFrame {
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addComponent(txtcpf, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addGroup(painel_dadosLayout.createSequentialGroup()
-                                .addGroup(painel_dadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(painel_dadosLayout.createSequentialGroup()
-                                        .addComponent(jLabel2)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(txtcodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(painel_dadosLayout.createSequentialGroup()
-                                        .addComponent(jLabel3)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(txtnome, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(btnbusca, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(143, 143, 143))))
+                                .addComponent(jLabel2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtcodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(painel_dadosLayout.createSequentialGroup()
+                                .addComponent(jLabel3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(txtnome, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(btnbusca, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(painel_dadosLayout.createSequentialGroup()
                         .addGap(339, 339, 339)
                         .addComponent(btnNovo, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -585,6 +582,11 @@ public class FrmFuncionarios extends javax.swing.JFrame {
                 txtpesquisaActionPerformed(evt);
             }
         });
+        txtpesquisa.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtpesquisaKeyPressed(evt);
+            }
+        });
 
         jLabel16.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel16.setText("Nome:");
@@ -594,6 +596,11 @@ public class FrmFuncionarios extends javax.swing.JFrame {
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
+            }
+        });
+        jButton1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jButton1KeyPressed(evt);
             }
         });
 
@@ -765,36 +772,7 @@ public class FrmFuncionarios extends javax.swing.JFrame {
     }//GEN-LAST:event_txtpesquisaActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // Pesquisa por nome
-
-        String nome = "%" + txtpesquisa.getText() + "%";
-
-        FuncionariosDAO dao = new FuncionariosDAO();
-        List<Funcionarios> lista = dao.ListaFuncionarioPorNome(nome);
-        DefaultTableModel dados = (DefaultTableModel) tabelaFuncionarios.getModel();
-        dados.setNumRows(0);
-
-        for (Funcionarios f : lista) {
-            dados.addRow(new Object[]{
-                f.getId(),
-                f.getNome(),
-                f.getRg(),
-                f.getCpf(),
-                f.getEmail(),
-                f.getSenha(),
-                f.getCargo(),
-                f.getNivel_acesso(),
-                f.getTelefone(),
-                f.getCelular(),
-                f.getCep(),
-                f.getEndereco(),
-                f.getNumero(),
-                f.getComplemento(),
-                f.getBairro(),
-                f.getCidade(),
-                f.getUf()
-            });
-        }
+      
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void btnNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovoActionPerformed
@@ -984,6 +962,43 @@ public class FrmFuncionarios extends javax.swing.JFrame {
     private void txtsenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtsenhaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtsenhaActionPerformed
+
+    private void txtpesquisaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtpesquisaKeyPressed
+         // Pesquisa por nome
+
+        String nome = "%" + txtpesquisa.getText() + "%";
+
+        FuncionariosDAO dao = new FuncionariosDAO();
+        List<Funcionarios> lista = dao.ListaFuncionarioPorNome(nome);
+        DefaultTableModel dados = (DefaultTableModel) tabelaFuncionarios.getModel();
+        dados.setNumRows(0);
+
+        for (Funcionarios f : lista) {
+            dados.addRow(new Object[]{
+                f.getId(),
+                f.getNome(),
+                f.getRg(),
+                f.getCpf(),
+                f.getEmail(),
+                f.getSenha(),
+                f.getCargo(),
+                f.getNivel_acesso(),
+                f.getTelefone(),
+                f.getCelular(),
+                f.getCep(),
+                f.getEndereco(),
+                f.getNumero(),
+                f.getComplemento(),
+                f.getBairro(),
+                f.getCidade(),
+                f.getUf()
+            });
+        }
+    }//GEN-LAST:event_txtpesquisaKeyPressed
+
+    private void jButton1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jButton1KeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1KeyPressed
 
     /**
      * @param args the command line arguments

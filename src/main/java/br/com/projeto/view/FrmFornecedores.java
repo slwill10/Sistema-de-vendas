@@ -18,32 +18,31 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Willian
  */
+
 public class FrmFornecedores extends javax.swing.JFrame {
 
     // Método listar na tabela
     public void listar() {
-        ClientesDAO dao = new ClientesDAO();
-        List<Clientes> lista = dao.listarClientes();
-        DefaultTableModel dados = (DefaultTableModel) tabelaClientes.getModel();
+       FornecedoresDAO dao = new FornecedoresDAO();
+        List<Fornecedores> lista = dao.listarFornecedores();
+        DefaultTableModel dados = (DefaultTableModel) tabelaFornecedores.getModel();
         dados.setNumRows(0);
 
-        for (Clientes c : lista) {
-
+        for (Fornecedores f : lista) {
             dados.addRow(new Object[]{
-                c.getId(),
-                c.getNome(),
-                c.getRg(),
-                c.getCpf(),
-                c.getEmail(),
-                c.getTelefone(),
-                c.getCelular(),
-                c.getCep(),
-                c.getEndereco(),
-                c.getNumero(),
-                c.getComplemento(),
-                c.getBairro(),
-                c.getCidade(),
-                c.getUf()
+                f.getId(),
+                f.getNome(),
+                f.getCnpj(),
+                f.getEmail(),
+                f.getTelefone(),
+                f.getCelular(),
+                f.getCep(),
+                f.getEndereco(),
+                f.getNumero(),
+                f.getComplemento(),
+                f.getBairro(),
+                f.getCidade(),
+                f.getUf()
             });
         }
 
@@ -105,7 +104,7 @@ public class FrmFornecedores extends javax.swing.JFrame {
         jLabel16 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tabelaClientes = new javax.swing.JTable();
+        tabelaFornecedores = new javax.swing.JTable();
         btnNovo1 = new javax.swing.JButton();
         BtnSalvar1 = new javax.swing.JButton();
         BtnEditar1 = new javax.swing.JButton();
@@ -122,14 +121,14 @@ public class FrmFornecedores extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Cadastro de clientes");
+        jLabel1.setText("Cadastro de fornecedores");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(19, 19, 19)
+                .addGap(26, 26, 26)
                 .addComponent(jLabel1)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -494,6 +493,11 @@ public class FrmFornecedores extends javax.swing.JFrame {
                 txtpesquisaActionPerformed(evt);
             }
         });
+        txtpesquisa.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtpesquisaKeyPressed(evt);
+            }
+        });
 
         jLabel16.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel16.setText("Nome:");
@@ -505,21 +509,26 @@ public class FrmFornecedores extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
+        jButton1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jButton1KeyPressed(evt);
+            }
+        });
 
-        tabelaClientes.setModel(new javax.swing.table.DefaultTableModel(
+        tabelaFornecedores.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Código", "Nome", "CNPJ", "E-mail", "Telefone", "Celular", "CEP", "Endereço ", "N°", "Comp", "Bairro", "Cidade", "UF"
+                "Código", "Nome", "Cnpj", "E-mail", "Telefone", "Celular", "CEP", "Endereço ", "N°", "Comp", "Bairro", "Cidade", "UF"
             }
         ));
-        tabelaClientes.addMouseListener(new java.awt.event.MouseAdapter() {
+        tabelaFornecedores.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tabelaClientesMouseClicked(evt);
+                tabelaFornecedoresMouseClicked(evt);
             }
         });
-        jScrollPane1.setViewportView(tabelaClientes);
+        jScrollPane1.setViewportView(tabelaFornecedores);
 
         btnNovo1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         btnNovo1.setText("NOVO");
@@ -603,7 +612,7 @@ public class FrmFornecedores extends javax.swing.JFrame {
                     .addContainerGap(271, Short.MAX_VALUE)))
         );
 
-        jTabbedPane1.addTab("Consulta de clientes", painel_clientes);
+        jTabbedPane1.addTab("Consulta de fornecedores", painel_clientes);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -670,21 +679,20 @@ public class FrmFornecedores extends javax.swing.JFrame {
     }//GEN-LAST:event_txtpesquisaActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // Pesquisa por nome
+// Pesquisa por nome
 
         String nome = "%" + txtpesquisa.getText() + "%";
 
-        ClientesDAO dao = new ClientesDAO();
-        List<Clientes> lista = dao.buscarClientePorNome(nome);
-        DefaultTableModel dados = (DefaultTableModel) tabelaClientes.getModel();
+        FornecedoresDAO dao = new FornecedoresDAO();
+        List<Fornecedores> lista = dao.listarFornecedoresPorNome(nome);
+        DefaultTableModel dados = (DefaultTableModel) tabelaFornecedores.getModel();
         dados.setNumRows(0);
 
-        for (Clientes c : lista) {
+        for (Fornecedores c : lista) {
             dados.addRow(new Object[]{
                 c.getId(),
                 c.getNome(),
-                c.getRg(),
-                c.getCpf(),
+                c.getCnpj(),
                 c.getEmail(),
                 c.getTelefone(),
                 c.getCelular(),
@@ -718,7 +726,7 @@ public class FrmFornecedores extends javax.swing.JFrame {
 
         Fornecedores obj = new Fornecedores();
         obj.setNome(txtnome.getText());
-       obj.setCnpj(txtcnpj.getText());
+        obj.setCnpj(txtcnpj.getText());
         obj.setEmail(txtemail.getText());
         obj.setTelefone(txttelefone.getText());
         obj.setCelular(txtcelular.getText());
@@ -739,12 +747,12 @@ public class FrmFornecedores extends javax.swing.JFrame {
     private void BtnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnExcluirActionPerformed
         // botão excluir
 
-        Clientes obj = new Clientes();
+        Fornecedores obj = new Fornecedores();
 
         obj.setId(Integer.parseInt(txtcodigo.getText()));
 
-        ClientesDAO dao = new ClientesDAO();
-        dao.excluirCliente(obj);
+        FornecedoresDAO dao = new FornecedoresDAO();
+        dao.excluirFornecedor(obj);
 
         new Utilitarios().limpaTela(painel_dados);
     }//GEN-LAST:event_BtnExcluirActionPerformed
@@ -774,30 +782,31 @@ public class FrmFornecedores extends javax.swing.JFrame {
 
     }//GEN-LAST:event_formWindowActivated
 
-    private void tabelaClientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaClientesMouseClicked
+    private void tabelaFornecedoresMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaFornecedoresMouseClicked
         // Pega os dados
         jTabbedPane1.setSelectedIndex(0);
-        txtcodigo.setText(tabelaClientes.getValueAt(tabelaClientes.getSelectedRow(), 0).toString());
-        txtnome.setText(tabelaClientes.getValueAt(tabelaClientes.getSelectedRow(), 1).toString());
-        txtemail.setText(tabelaClientes.getValueAt(tabelaClientes.getSelectedRow(), 3).toString());
-        txttelefone.setText(tabelaClientes.getValueAt(tabelaClientes.getSelectedRow(), 4).toString());
-        txtcelular.setText(tabelaClientes.getValueAt(tabelaClientes.getSelectedRow(), 5).toString());
-        txtcep.setText(tabelaClientes.getValueAt(tabelaClientes.getSelectedRow(), 6).toString());
-        txtendereco.setText(tabelaClientes.getValueAt(tabelaClientes.getSelectedRow(), 7).toString());
-        txtnumero.setText(tabelaClientes.getValueAt(tabelaClientes.getSelectedRow(), 8).toString());
-        txtcomplemento.setText(tabelaClientes.getValueAt(tabelaClientes.getSelectedRow(), 9).toString());
-        txtbairro.setText(tabelaClientes.getValueAt(tabelaClientes.getSelectedRow(), 10).toString());
-        txtcidade.setText(tabelaClientes.getValueAt(tabelaClientes.getSelectedRow(), 11).toString());
-        cbuf.setSelectedItem(tabelaClientes.getValueAt(tabelaClientes.getSelectedRow(), 12).toString());
-    }//GEN-LAST:event_tabelaClientesMouseClicked
+        txtcodigo.setText(tabelaFornecedores.getValueAt(tabelaFornecedores.getSelectedRow(), 0).toString());
+        txtnome.setText(tabelaFornecedores.getValueAt(tabelaFornecedores.getSelectedRow(), 1).toString());
+        txtcnpj.setText(tabelaFornecedores.getValueAt(tabelaFornecedores.getSelectedRow(),2).toString());
+        txtemail.setText(tabelaFornecedores.getValueAt(tabelaFornecedores.getSelectedRow(), 3).toString());
+        txttelefone.setText(tabelaFornecedores.getValueAt(tabelaFornecedores.getSelectedRow(), 4).toString());
+        txtcelular.setText(tabelaFornecedores.getValueAt(tabelaFornecedores.getSelectedRow(), 5).toString());
+        txtcep.setText(tabelaFornecedores.getValueAt(tabelaFornecedores.getSelectedRow(), 6).toString());
+        txtendereco.setText(tabelaFornecedores.getValueAt(tabelaFornecedores.getSelectedRow(), 7).toString());
+        txtnumero.setText(tabelaFornecedores.getValueAt(tabelaFornecedores.getSelectedRow(), 8).toString());
+        txtcomplemento.setText(tabelaFornecedores.getValueAt(tabelaFornecedores.getSelectedRow(), 9).toString());
+        txtbairro.setText(tabelaFornecedores.getValueAt(tabelaFornecedores.getSelectedRow(), 10).toString());
+        txtcidade.setText(tabelaFornecedores.getValueAt(tabelaFornecedores.getSelectedRow(), 11).toString());
+        cbuf.setSelectedItem(tabelaFornecedores.getValueAt(tabelaFornecedores.getSelectedRow(), 12).toString());
+    }//GEN-LAST:event_tabelaFornecedoresMouseClicked
 
     private void BtnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEditarActionPerformed
         // Botão editar
 
-        Clientes obj = new Clientes();
+        Fornecedores obj = new Fornecedores();
 
         obj.setNome(txtnome.getText());
-        obj.setCpf(txtcnpj.getText());
+        obj.setCnpj(txtcnpj.getText());
         obj.setEmail(txtemail.getText());
         obj.setTelefone(txttelefone.getText());
         obj.setCelular(txtcelular.getText());
@@ -810,8 +819,8 @@ public class FrmFornecedores extends javax.swing.JFrame {
         obj.setUf(cbuf.getSelectedItem().toString());
         obj.setId(Integer.parseInt(txtcodigo.getText()));
 
-        ClientesDAO dao = new ClientesDAO();
-        dao.alterarCliente(obj);
+        FornecedoresDAO dao = new FornecedoresDAO();
+        dao.alterarFornecedor(obj);
 
         new Utilitarios().limpaTela(painel_dados);
     }//GEN-LAST:event_BtnEditarActionPerformed
@@ -824,14 +833,15 @@ public class FrmFornecedores extends javax.swing.JFrame {
         // btn buscar cliente por nome
 
         String nome = txtnome.getText();
-        Clientes obj = new Clientes();
-        ClientesDAO dao = new ClientesDAO();
+        Fornecedores obj = new Fornecedores();
+        FornecedoresDAO dao = new FornecedoresDAO();
 
         obj = dao.consultaPorNome(nome);
 
         // Exibir os dados do obj nos campos de texto
         txtcodigo.setText(String.valueOf(obj.getId()));
         txtnome.setText(obj.getNome());
+        txtcnpj.setText(obj.getCnpj());
         txtemail.setText(obj.getEmail());
         txttelefone.setText(obj.getTelefone());
         txtcelular.setText(obj.getCelular());
@@ -866,41 +876,74 @@ public class FrmFornecedores extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_txtcepKeyPressed
 
+    private void jButton1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jButton1KeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1KeyPressed
+
+    private void txtpesquisaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtpesquisaKeyPressed
+        // Pesquisa por nome
+
+        String nome = "%" + txtpesquisa.getText() + "%";
+
+        FornecedoresDAO dao = new FornecedoresDAO();
+        List<Fornecedores> lista = dao.listarFornecedoresPorNome(nome);
+        DefaultTableModel dados = (DefaultTableModel) tabelaFornecedores.getModel();
+        dados.setNumRows(0);
+
+        for (Fornecedores c : lista) {
+            dados.addRow(new Object[]{
+                c.getId(),
+                c.getNome(),
+                c.getCnpj(),
+                c.getEmail(),
+                c.getTelefone(),
+                c.getCelular(),
+                c.getCep(),
+                c.getEndereco(),
+                c.getNumero(),
+                c.getComplemento(),
+                c.getBairro(),
+                c.getCidade(),
+                c.getUf()
+            });
+        }
+    }//GEN-LAST:event_txtpesquisaKeyPressed
+
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+    /* Set the Nimbus look and feel */
+    //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+    /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
+     */
+    try {
+        for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+            if ("Nimbus".equals(info.getName())) {
+                javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                break;
             }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FrmFornecedores.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FrmFornecedores.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FrmFornecedores.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FrmFornecedores.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new FrmFornecedores().setVisible(true);
-            }
-        });
+    } catch (ClassNotFoundException ex) {
+        java.util.logging.Logger.getLogger(FrmFornecedores.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+    } catch (InstantiationException ex) {
+        java.util.logging.Logger.getLogger(FrmFornecedores.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+    } catch (IllegalAccessException ex) {
+        java.util.logging.Logger.getLogger(FrmFornecedores.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+    } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+        java.util.logging.Logger.getLogger(FrmFornecedores.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
     }
+    //</editor-fold>
+    //</editor-fold>
+
+    /* Create and display the form */
+    java.awt.EventQueue.invokeLater(new Runnable() {
+        public void run() {
+            new FrmFornecedores().setVisible(true);
+        }
+    });
+}
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnEditar;
@@ -933,7 +976,7 @@ public class FrmFornecedores extends javax.swing.JFrame {
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JPanel painel_clientes;
     private javax.swing.JPanel painel_dados;
-    private javax.swing.JTable tabelaClientes;
+    private javax.swing.JTable tabelaFornecedores;
     private javax.swing.JTextField txtbairro;
     private javax.swing.JFormattedTextField txtcelular;
     private javax.swing.JFormattedTextField txtcep;
