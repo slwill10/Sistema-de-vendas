@@ -482,27 +482,18 @@ public class FrmProdutos extends javax.swing.JFrame {
 
         String nome = "%" + txtpesquisa.getText() + "%";
 
-        ClientesDAO dao = new ClientesDAO();
-        List<Clientes> lista = dao.buscarClientePorNome(nome);
+        ProdutosDAO dao = new ProdutosDAO();
+        List<Produtos> lista = dao.listarprodutoPorNome(nome);
         DefaultTableModel dados = (DefaultTableModel) tabelaProdutos.getModel();
         dados.setNumRows(0);
 
-        for (Clientes c : lista) {
+        for (Produtos p : lista) {
             dados.addRow(new Object[]{
-                c.getId(),
-                c.getNome(),
-                c.getRg(),
-                c.getCpf(),
-                c.getEmail(),
-                c.getTelefone(),
-                c.getCelular(),
-                c.getCep(),
-                c.getEndereco(),
-                c.getNumero(),
-                c.getComplemento(),
-                c.getBairro(),
-                c.getCidade(),
-                c.getUf()
+                p.getId(),
+                p.getDescricao(),
+                p.getPreco(),
+                p.getQtd_estoque(),
+                p.getFornecedor()
             });
         }
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -533,12 +524,12 @@ public class FrmProdutos extends javax.swing.JFrame {
     private void BtnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnExcluirActionPerformed
         // botão excluir
 
-        Clientes obj = new Clientes();
+        Produtos obj = new Produtos();
 
         obj.setId(Integer.parseInt(txtcodigo.getText()));
 
-        ClientesDAO dao = new ClientesDAO();
-        dao.excluirCliente(obj);
+        ProdutosDAO dao = new ProdutosDAO();
+        dao.excluirProduto(obj);
 
         new Utilitarios().limpaTela(painel_dados);
     }//GEN-LAST:event_BtnExcluirActionPerformed
