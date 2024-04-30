@@ -38,6 +38,7 @@ br\com\projeto\view\FrmProdutos$15.class
 br\com\projeto\view\FrmProdutos$4.class
 br\com\projeto\view\FrmFuncionarios$32.class
 br\com\projeto\view\FrmProdutos$18.class
+br\com\projeto\model\Produtosl.class
 br\com\projeto\model\WebServiceCep$XmlEnums.class
 br\com\projeto\view\FrmClient$22.class
 br\com\projeto\model\WebServiceCep$Xml.class
@@ -104,7 +105,6 @@ br\com\projeto\view\FrmFuncionarios$19.class
 br\com\projeto\view\FrmClient$11.class
 br\com\projeto\view\FrmFornecedores$13.class
 br\com\projeto\view\FrmLogin$3.class
-br\com\projeto\model\Produtos.class
 br\com\projeto\view\FrmClient$3.class
 br\com\projeto\view\FrmProdutos$20.class
 br\com\projeto\view\FrmFuncionarios$24.class
