@@ -9,7 +9,7 @@ import br.com.projeto.dao.FornecedoresDAO;
 import br.com.projeto.dao.ProdutosDAO;
 import br.com.projeto.model.Clientes;
 import br.com.projeto.model.Fornecedores;
-import br.com.projeto.model.Produtosl;
+import br.com.projeto.model.Produtos;
 import br.com.projeto.model.Utilitarios;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
@@ -23,11 +23,11 @@ public class FrmProdutos extends javax.swing.JFrame {
     // Método listar na tabela
     public void listar() {
         ProdutosDAO dao = new ProdutosDAO();
-        List<Produtosl> lista = dao.listarProdutos();
+        List<Produtos> lista = dao.listarProdutos();
         DefaultTableModel dados = (DefaultTableModel) tabelaProdutos.getModel();
         dados.setNumRows(0);
 
-        for (Produtosl p : lista) {
+        for (Produtos p : lista) {
 
             dados.addRow(new Object[]{
                 p.getId(),
@@ -512,7 +512,7 @@ public class FrmProdutos extends javax.swing.JFrame {
     }//GEN-LAST:event_btnNovoActionPerformed
 
     private void BtnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSalvarActionPerformed
-       Produtosl obj = new Produtosl();
+       Produtos obj = new Produtos();
        
        obj.setDescricao(txtdescricao.getText());
        obj.setPreco(Double.parseDouble( txtpreco.getText()));
@@ -566,13 +566,45 @@ public class FrmProdutos extends javax.swing.JFrame {
 
     private void tabelaProdutosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaProdutosMouseClicked
         // Pega os dados
+        
+        jTabbedPane1.setSelectedIndex(0);
+        
+        txtcodigo.setText(tabelaProdutos.getValueAt(tabelaProdutos.getSelectedRow(), 0).toString());
+        txtdescricao.setText(tabelaProdutos.getValueAt(tabelaProdutos.getSelectedRow(), 1).toString());
+        txtpreco.setText(tabelaProdutos.getValueAt(tabelaProdutos.getSelectedRow(), 2).toString());
+        txtqtdestoque.setText(tabelaProdutos.getValueAt(tabelaProdutos.getSelectedRow(), 3).toString());
     
+        Fornecedores f = new Fornecedores();
+        FornecedoresDAO dao = new FornecedoresDAO();
+        f = dao.consultaPorNome(tabelaProdutos.getValueAt(tabelaProdutos.getSelectedRow(), 4).toString());
+        
+        cbfornecedor.removeAllItems();
+        cbfornecedor.setSelectedItem(f);
+        
+
     }//GEN-LAST:event_tabelaProdutosMouseClicked
 
     private void BtnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEditarActionPerformed
         // Botão editar
-
-     
+        
+        Produtos obj = new Produtos();
+        
+        obj.setId(Integer.parseInt(txtcodigo.getText()));
+        obj.setDescricao(txtdescricao.getText());
+        obj.setPreco(Double.parseDouble(txtpreco.getText()));
+        obj.setQtd_estoque(Integer.parseInt(txtqtdestoque.getText()));
+        
+        Fornecedores f = new Fornecedores();
+        f = (Fornecedores) cbfornecedor.getSelectedItem();
+        
+        obj.setFornecedor(f);
+        
+        obj.setFornecedor(f);
+        
+        ProdutosDAO dao = new ProdutosDAO();
+        
+        dao.alterarProduto(obj);
+           
     }//GEN-LAST:event_BtnEditarActionPerformed
 
     private void BtnEditar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEditar1ActionPerformed

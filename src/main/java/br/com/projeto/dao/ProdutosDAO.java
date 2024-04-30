@@ -6,7 +6,7 @@ package br.com.projeto.dao;
 
 import br.com.projeto.jdbc.ConnectionFactory;
 import br.com.projeto.model.Fornecedores;
-import br.com.projeto.model.Produtosl;
+import br.com.projeto.model.Produtos;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -27,7 +27,7 @@ public class ProdutosDAO {
     }
 
     // Método cadastras produtos
-    public void cadastrar(Produtosl obj) {
+    public void cadastrar(Produtos obj) {
         try {
 
             String sql = "Insert into tb_produtos(descricao, preco, qtd_estoque, for_id)values(?, ?, ?, ?)";
@@ -49,8 +49,8 @@ public class ProdutosDAO {
     }
 
     // Método listar todos os produtos
-    public List<Produtosl> listarProdutos() {
-        List<Produtosl> lista = new ArrayList<>();
+    public List<Produtos> listarProdutos() {
+        List<Produtos> lista = new ArrayList<>();
         try {
             String sql = "select p.id, p.descricao, p.preco, p.qtd_estoque, f.nome from tb_produtos as p\n"
                     + "inner join tb_fornecedores as f on (p.for_id = f.id);";
@@ -58,7 +58,7 @@ public class ProdutosDAO {
             ResultSet rs = stmt.executeQuery();
 
             while (rs.next()) {
-                Produtosl obj = new Produtosl();
+                Produtos obj = new Produtos();
                 Fornecedores f = new Fornecedores();
 
                 obj.setId(rs.getInt("id"));
@@ -79,6 +79,29 @@ public class ProdutosDAO {
             JOptionPane.showMessageDialog(null, "Error: " + e);
         }
         return lista;
+    }
+    
+    // Método alterar
+    public void alterarProduto(Produtos obj){
+        try {
+            
+            String sql = "update tb_produtos set descricao=?, preco=?, qtd_estoque=?, for_id=? where id = ?";
+            PreparedStatement stmt = con.prepareStatement(sql);
+            stmt.setString(1, obj.getDescricao());
+            stmt.setDouble(2, obj.getPreco());
+            stmt.setInt(3, obj.getQtd_estoque());
+            stmt.setInt(4, obj.getFornecedor().getId());
+            stmt.setInt(5, obj.getId());
+            
+            
+            stmt.execute();
+            stmt.close();
+            
+            JOptionPane.showMessageDialog(null, "Alterado com sucesso!");
+            
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error: " + e);
+        }
     }
 
 }

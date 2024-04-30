@@ -8,7 +8,7 @@ package br.com.projeto.model;
  *
  * @author Willian
  */
-public class Produtosl {
+public class Produtos {
     
     private int id;
     private String descricao;
