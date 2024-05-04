@@ -120,26 +120,25 @@ public class ProdutosDAO {
 
         }
     }
-    
+
     // Método listar por nome
-    
-    public List<Produtos> listarprodutoPorNome(String nome){
+    public List<Produtos> listarprodutoPorNome(String nome) {
         try {
-            
+
             List<Produtos> lista = new ArrayList<>();
-            
-            String sql = "select p.id, p.descricao, p.preco, p.qtd_estoque, f.nome" +
-"                    from tb_produtos as p inner join tb_fornecedores as f on (p.for_id = f.id) where p.descricao like ?";
+
+            String sql = "select p.id, p.descricao, p.preco, p.qtd_estoque, f.nome"
+                    + "                    from tb_produtos as p inner join tb_fornecedores as f on (p.for_id = f.id) where p.descricao like ?";
             PreparedStatement stmt = con.prepareStatement(sql);
             stmt.setString(1, nome);
-            
+
             ResultSet rs = stmt.executeQuery();
-            
-            while(rs.next()){
-                
+
+            while(rs.next()) {
+
                 Produtos obj = new Produtos();
                 Fornecedores f = new Fornecedores();
-                
+
                 obj.setId(rs.getInt("id"));
                 obj.setDescricao(rs.getString("descricao"));
                 obj.setPreco(rs.getDouble("preco"));
@@ -149,9 +148,37 @@ public class ProdutosDAO {
                 obj.setFornecedor(f);
                 lista.add(obj);
             }
-            
+
             return lista;
-            
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error: " + e);
+            return null;
+        }
+    }
+
+    // Método buscaProduto por Codigo
+    public Produtos buscaPorCodigo(int id) {
+        try {
+
+            String sql = "select * from tb_produtos where id = ?";
+            PreparedStatement stmt = con.prepareStatement(sql);
+            stmt.setInt(1, id);
+
+            ResultSet rs = stmt.executeQuery();
+
+            Produtos obj = new Produtos();
+
+            if (rs.next()) {
+
+                obj.setId(rs.getInt("id"));
+                obj.setDescricao(rs.getString("descricao"));
+                obj.setPreco(rs.getDouble("preco"));
+                obj.setQtd_estoque(rs.getInt("qtd_estoque"));
+            }
+
+            return obj;
+
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Error: " + e);
             return null;
