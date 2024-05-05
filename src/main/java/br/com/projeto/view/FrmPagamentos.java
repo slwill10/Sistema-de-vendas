@@ -1057,6 +1057,21 @@ public class FrmPagamentos extends javax.swing.JFrame {
 
     private void btnfinalizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnfinalizarActionPerformed
         // TODO add your handling code here:
+        
+        double pcartao, pcheque, pdinheiro, totalpago, totalvenda, troco;
+        
+        pcartao = Double.parseDouble(txtcartao.getText());
+        pcheque = Double.parseDouble(txtcheque.getText());
+        pdinheiro = Double.parseDouble(txtdinheiro.getText());
+        
+        totalvenda = Double.parseDouble(txttotal.getText());
+        
+        totalpago = pcartao + pcheque + pdinheiro;
+        
+        troco = totalpago - totalvenda;
+        
+        txttroco.setText(String.valueOf(troco));
+        
     }//GEN-LAST:event_btnfinalizarActionPerformed
 
     /**
@@ -1156,7 +1171,7 @@ public class FrmPagamentos extends javax.swing.JFrame {
     private javax.swing.JTextField txtpesquisa;
     private javax.swing.JFormattedTextField txtrg;
     private javax.swing.JFormattedTextField txttelefone;
-    private javax.swing.JTextField txttotal;
+    public javax.swing.JTextField txttotal;
     private javax.swing.JTextField txttroco;
     // End of variables declaration//GEN-END:variables
 }
