@@ -8,6 +8,8 @@ D:\Willian\Documents\NetBeansProjects\projeto-vendas\src\main\java\br\com\projet
 D:\Willian\Documents\NetBeansProjects\projeto-vendas\src\main\java\br\com\projeto\jdbc\ConnectionFactory.java
 D:\Willian\Documents\NetBeansProjects\projeto-vendas\src\main\java\br\com\projeto\model\Clientes.java
 D:\Willian\Documents\NetBeansProjects\projeto-vendas\src\main\java\br\com\projeto\view\FrmFornecedores.java
+D:\Willian\Documents\NetBeansProjects\projeto-vendas\src\main\java\br\com\projeto\model\ItemVenda.java
+D:\Willian\Documents\NetBeansProjects\projeto-vendas\src\main\java\br\com\projeto\dao\VendasDAO.java
 D:\Willian\Documents\NetBeansProjects\projeto-vendas\src\main\java\br\com\projeto\model\Produtos.java
 D:\Willian\Documents\NetBeansProjects\projeto-vendas\src\main\java\br\com\projeto\model\Fornecedores.java
 D:\Willian\Documents\NetBeansProjects\projeto-vendas\src\main\java\br\com\projeto\view\FrmClient.java
@@ -18,3 +20,4 @@ D:\Willian\Documents\NetBeansProjects\projeto-vendas\src\main\java\br\com\projet
 D:\Willian\Documents\NetBeansProjects\projeto-vendas\src\main\java\br\com\projeto\view\FrmPagamentos.java
 D:\Willian\Documents\NetBeansProjects\projeto-vendas\src\main\java\br\com\projeto\model\Funcionarios.java
 D:\Willian\Documents\NetBeansProjects\projeto-vendas\src\main\java\br\com\projeto\dao\ProdutosDAO.java
+D:\Willian\Documents\NetBeansProjects\projeto-vendas\src\main\java\br\com\projeto\model\Vendas.java

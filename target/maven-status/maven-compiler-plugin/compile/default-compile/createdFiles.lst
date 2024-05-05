@@ -16,6 +16,7 @@ br\com\projeto\view\FrmClient$23.class
 br\com\projeto\view\FrmPagamentos$23.class
 br\com\projeto\view\FrmFuncionarios$12.class
 br\com\projeto\view\FrmFornecedores$25.class
+br\com\projeto\dao\VendasDAO.class
 br\com\projeto\view\FrmFuncionarios$20.class
 br\com\projeto\model\WebServiceCep$Xml$3.class
 br\com\projeto\jdbc\TestaConexao.class
@@ -47,9 +48,11 @@ br\com\projeto\view\FrmClient$1.class
 br\com\projeto\view\FrmPagamentos$28.class
 br\com\projeto\view\FrmClient$16.class
 br\com\projeto\view\FrmClient$8.class
+br\com\projeto\model\Vendas.class
 br\com\projeto\view\FrmPagamentos$6.class
 br\com\projeto\view\FrmFornecedores$12.class
 br\com\projeto\model\Utilitarios.class
+br\com\projeto\model\ItemVenda.class
 br\com\projeto\view\FrmPagamentos$16.class
 br\com\projeto\view\FrmFornecedores$18.class
 br\com\projeto\view\FrmFuncionarios$17.class
@@ -179,6 +182,7 @@ br\com\projeto\view\FrmFornecedores$29.class
 br\com\projeto\view\FrmFuncionarios$8.class
 br\com\projeto\view\FrmPagamentos$8.class
 br\com\projeto\view\FrmFornecedores$10.class
+br\com\projeto\view\FrmProdutos$23.class
 br\com\projeto\view\FrmVendas$5.class
 br\com\projeto\view\FrmVendas$15.class
 br\com\projeto\model\Produtos.class

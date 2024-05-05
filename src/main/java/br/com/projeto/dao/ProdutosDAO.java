@@ -134,7 +134,7 @@ public class ProdutosDAO {
 
             ResultSet rs = stmt.executeQuery();
 
-            while(rs.next()) {
+            while (rs.next()) {
 
                 Produtos obj = new Produtos();
                 Fornecedores f = new Fornecedores();
@@ -150,6 +150,37 @@ public class ProdutosDAO {
             }
 
             return lista;
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error: " + e);
+            return null;
+        }
+    }
+
+    // Método consultaProduto por nome
+    public Produtos consultarPorNome(String nome) {
+        try {
+
+            String sql = "select p.id, p.descricao, p.preco, p.qtd_estoque, f.nome"
+                    + "   from tb_produtos as p inner join tb_fornecedores as f on (p.for_id = f.id) where p.descricao = ?";
+            PreparedStatement stmt = con.prepareStatement(sql);
+            stmt.setString(1, nome);
+            ResultSet rs = stmt.executeQuery();
+            Produtos obj = new Produtos();
+            Fornecedores f = new Fornecedores();
+
+            if (rs.next()) {
+
+                obj.setId(rs.getInt("id"));
+                obj.setDescricao(rs.getString("descricao"));
+                obj.setPreco(rs.getDouble("preco"));
+                obj.setQtd_estoque(rs.getInt("qtd_estoque"));
+                f.setNome(rs.getString("f.nome"));
+
+                obj.setFornecedor(f);
+            }
+
+            return obj;
 
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Error: " + e);

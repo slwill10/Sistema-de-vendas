@@ -24,6 +24,7 @@ import javax.swing.table.DefaultTableModel;
 public class FrmVendas extends javax.swing.JFrame {
     double total, preco, subtotal;
     int qtd;
+    Clientes obj = new Clientes();
     
     DefaultTableModel carrinho;
 
@@ -511,7 +512,6 @@ public class FrmVendas extends javax.swing.JFrame {
     private void btnbuscaclienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbuscaclienteActionPerformed
         // TODO add your handling code here:
 
-        Clientes obj = new Clientes();
         ClientesDAO dao = new ClientesDAO();
 
         obj = dao.buscarClientePorCpf(txtcpf.getText());
@@ -538,6 +538,7 @@ public class FrmVendas extends javax.swing.JFrame {
         
         FrmPagamentos telap = new FrmPagamentos();
         telap.txttotal.setText(String.valueOf(total));
+        telap.cliente = obj;
         telap.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnpagamentoActionPerformed
@@ -550,7 +551,7 @@ public class FrmVendas extends javax.swing.JFrame {
         // Busca cliente por cpf
 
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-            Clientes obj = new Clientes();
+            
             ClientesDAO dao = new ClientesDAO();
 
             obj = dao.buscarClientePorCpf(txtcpf.getText());
