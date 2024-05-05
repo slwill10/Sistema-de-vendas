@@ -160,7 +160,6 @@ public class ProdutosDAO {
     // Método buscaProduto por Codigo
     public Produtos buscaPorCodigo(int id) {
         try {
-
             String sql = "select * from tb_produtos where id = ?";
             PreparedStatement stmt = con.prepareStatement(sql);
             stmt.setInt(1, id);
