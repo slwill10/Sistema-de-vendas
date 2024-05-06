@@ -112,15 +112,48 @@ Após configurar o banco de dados, siga estes passos para executar o sistema:
 1. Clone este repositório: `git clone https://github.com/seu_usuario/sistema-vendas-desktop.git`
 2. Abra o projeto em sua IDE Java preferida.
 3. Compile e execute o projeto.
+
 ## Funcionalidades
 
-### Salvamento de Clientes
+Funcionalidades Principais:
+## Cadastro de Usuário:
+Permite a inserção de novos usuários no sistema.
 
-O sistema permite adicionar novos clientes, fornecendo as informações necessárias, como nome, sobrenome, e-mail, etc. Os dados do cliente são salvos no banco de dados para referência futura.
+## Consulta de Usuário:
+Facilita a busca e visualização dos detalhes dos usuários cadastrados.
 
-### Consulta de Clientes
+## Detalhes da Venda:
+Oferece informações detalhadas sobre as vendas realizadas, incluindo itens vendidos e valores.
 
-É possível consultar os clientes salvos no banco de dados. A consulta pode ser realizada por diferentes critérios, como nome, sobrenome, ou ID do cliente.
+## Cadastro de Fornecedor:
+Permite o cadastro de novos fornecedores para os produtos.
+
+## Consulta de Fornecedor:
+Permite visualizar os detalhes dos fornecedores cadastrados.
+
+## Cadastro de Funcionário:
+Permite a inserção de novos funcionários no sistema.
+
+## Consulta de Funcionários:
+Facilita a busca e visualização dos detalhes dos funcionários cadastrados.
+
+## Histórico de Vendas:
+Mantém um registro histórico de todas as vendas realizadas.
+
+## Tela de Login:
+Interface para autenticação de usuários antes de acessar o sistema.
+
+## Menu:
+Navegação intuitiva para acessar as diferentes funcionalidades do sistema.
+
+## Tela para Pagamento:
+Permite o registro e processamento de pagamentos das vendas.
+
+## Cadastro de Venda:
+Funcionalidade para registrar novas vendas no sistema.
+
+## Total de Vendas no Mês:
+Calcula e exibe o total de vendas realizadas em um determinado mês.
 
 ## Contribuição
 
