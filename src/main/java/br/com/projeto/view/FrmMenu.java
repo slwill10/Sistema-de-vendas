@@ -51,7 +51,6 @@ public class FrmMenu extends javax.swing.JFrame {
         jMenu7 = new javax.swing.JMenu();
         jMenuItem3 = new javax.swing.JMenuItem();
         jMenu10 = new javax.swing.JMenu();
-        jMenuItem4 = new javax.swing.JMenuItem();
         menuconsultaprodutos = new javax.swing.JMenuItem();
         menu_posicao = new javax.swing.JMenu();
         jMenuItem6 = new javax.swing.JMenuItem();
@@ -168,9 +167,6 @@ public class FrmMenu extends javax.swing.JFrame {
 
         jMenu10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/produtos.png"))); // NOI18N
         jMenu10.setText("Produtos");
-
-        jMenuItem4.setText("Controle de estoque ");
-        jMenu10.add(jMenuItem4);
 
         menuconsultaprodutos.setText("Consulta de produtos");
         menuconsultaprodutos.addActionListener(new java.awt.event.ActionListener() {
@@ -378,7 +374,6 @@ public class FrmMenu extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JMenuItem jMenuItem9;
     private javax.swing.JPanel jPanel1;
