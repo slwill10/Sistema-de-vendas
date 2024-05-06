@@ -50,31 +50,28 @@ public class ItemVendaDAO {
 
     // Método que lista itens de uma venda por id
     public List<ItemVenda> listaItensPorVenda(int venda_id) {
-
         List<ItemVenda> lista = new ArrayList<>();
 
         try {
-            String sql = "select i.id, p.descricao, i.qtd, p.preco, i.subtotal from tb_itensvendas as i"
-                    + "inner join tb_produtos as p on (i.produto_id = p.id)"
-                    + "where i.venda_id = ?;";
+            String sql = "SELECT i.id, p.descricao, i.qtd, p.preco, i.subtotal FROM tb_itensvendas AS i "
+                    + "INNER JOIN tb_produtos AS p ON i.produto_id = p.id "
+                    + "WHERE i.venda_id = ?;";
 
             PreparedStatement stmt = con.prepareStatement(sql);
             stmt.setInt(1, venda_id);
             ResultSet rs = stmt.executeQuery();
 
             while (rs.next()) {
-                
                 ItemVenda item = new ItemVenda();
                 Produtos prod = new Produtos();
-                
-                item.setId(rs.getInt("i.id"));
-                prod.setDescricao(rs.getString("p.descricao"));
-                item.setQtd(rs.getInt("i.qtd"));
-                prod.setPreco(rs.getDouble("p.preco"));
-                item.setSubtotal(rs.getDouble("i.subtotal"));
-                
+
+                item.setId(rs.getInt("id")); // Correção: 'i.id' não é necessário, basta 'id'
+                prod.setDescricao(rs.getString("descricao")); // Correção: 'p.descricao' se torna 'descricao'
+                item.setQtd(rs.getInt("qtd")); // Correção: 'i.qtd' se torna 'qtd'
+                prod.setPreco(rs.getDouble("preco")); // Correção: 'p.preco' se torna 'preco'
+                item.setSubtotal(rs.getDouble("subtotal")); // Correção: 'i.subtotal' se torna 'subtotal'
+
                 item.setProduto(prod);
-                
 
                 lista.add(item);
             }
@@ -83,4 +80,5 @@ public class ItemVendaDAO {
         }
         return lista;
     }
+
 }

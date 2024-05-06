@@ -246,22 +246,38 @@ public class FuncionariosDAO {
             stmt.setString(2, senha);
             ResultSet rs = stmt.executeQuery();
 
-            if (rs.next()) { 
-                JOptionPane.showMessageDialog(null, "Seja bem vindo ao sistema!");
-                FrmMenu tela = new FrmMenu();
-                tela.usarioLogado = rs.getString("nome");
-                tela.setVisible(true);
+            if (rs.next()) {
+
+                //Caso seja adm
+                if (rs.getString("nivel_acesso").equals("Admin")) {
+                    
+                    JOptionPane.showMessageDialog(null, "Seja bem vindo ao sistema!");
+                    FrmMenu tela = new FrmMenu();
+                    tela.usarioLogado = rs.getString("nome");
+                    tela.setVisible(true);
+                } 
+                else if (rs.getString("nivel_acesso").equals("Usuário")) {
+                    
+                    JOptionPane.showMessageDialog(null, "Seja bem vindo ao sistema!");
+                    FrmMenu tela = new FrmMenu();
+                    tela.usarioLogado = rs.getString("nome");
+                    
+                    //Desabilitar os menus
+                    tela.menuposicao.setEnabled(false);
+                    tela.menu_controlevendas.setEnabled(false);
+                    
+                    tela.setVisible(true);
+                }
+
             } else {
                 JOptionPane.showMessageDialog(null, "Não foi possível logar!");
                 new FrmLogin().setVisible(true);
             }
-            
+
         } catch (Exception e) {
-            
-           JOptionPane.showMessageDialog(null, "Error: " + e);
+
+            JOptionPane.showMessageDialog(null, "Error: " + e);
         }
     }
-    
-    
 
 }

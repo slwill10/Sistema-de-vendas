@@ -52,10 +52,10 @@ public class FrmMenu extends javax.swing.JFrame {
         jMenu10 = new javax.swing.JMenu();
         jMenuItem4 = new javax.swing.JMenuItem();
         jMenuItem5 = new javax.swing.JMenuItem();
-        jMenu8 = new javax.swing.JMenu();
+        menu_posicao = new javax.swing.JMenu();
         jMenuItem6 = new javax.swing.JMenuItem();
-        jMenuItem7 = new javax.swing.JMenuItem();
-        jMenuItem8 = new javax.swing.JMenuItem();
+        menuposicao = new javax.swing.JMenuItem();
+        menu_controlevendas = new javax.swing.JMenuItem();
         jMenu9 = new javax.swing.JMenu();
         jMenu11 = new javax.swing.JMenu();
         jMenuItem9 = new javax.swing.JMenuItem();
@@ -171,8 +171,8 @@ public class FrmMenu extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu10);
 
-        jMenu8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/vendas.png"))); // NOI18N
-        jMenu8.setText("Vendas");
+        menu_posicao.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/vendas.png"))); // NOI18N
+        menu_posicao.setText("Vendas");
 
         jMenuItem6.setText("Abri PDV");
         jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
@@ -180,15 +180,20 @@ public class FrmMenu extends javax.swing.JFrame {
                 jMenuItem6ActionPerformed(evt);
             }
         });
-        jMenu8.add(jMenuItem6);
+        menu_posicao.add(jMenuItem6);
 
-        jMenuItem7.setText("Posição do dia");
-        jMenu8.add(jMenuItem7);
+        menuposicao.setText("Posição do dia");
+        menu_posicao.add(menuposicao);
 
-        jMenuItem8.setText("Histórico de vendas");
-        jMenu8.add(jMenuItem8);
+        menu_controlevendas.setText("Histórico de vendas");
+        menu_controlevendas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menu_controlevendasActionPerformed(evt);
+            }
+        });
+        menu_posicao.add(menu_controlevendas);
 
-        jMenuBar1.add(jMenu8);
+        jMenuBar1.add(menu_posicao);
         jMenuBar1.add(jMenu9);
 
         jMenu11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/configuracoes.png"))); // NOI18N
@@ -238,6 +243,10 @@ public class FrmMenu extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem6ActionPerformed
 
+    private void menu_controlevendasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_controlevendasActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_menu_controlevendasActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -285,7 +294,6 @@ public class FrmMenu extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenu jMenu6;
     private javax.swing.JMenu jMenu7;
-    private javax.swing.JMenu jMenu8;
     private javax.swing.JMenu jMenu9;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuBar jMenuBar2;
@@ -296,12 +304,13 @@ public class FrmMenu extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
-    private javax.swing.JMenuItem jMenuItem7;
-    private javax.swing.JMenuItem jMenuItem8;
     private javax.swing.JMenuItem jMenuItem9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JLabel lblusuario;
+    public javax.swing.JMenuItem menu_controlevendas;
+    private javax.swing.JMenu menu_posicao;
+    public javax.swing.JMenuItem menuposicao;
     private javax.swing.JDesktopPane paineldesktop;
     // End of variables declaration//GEN-END:variables
 }

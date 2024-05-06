@@ -9,6 +9,7 @@ br\com\projeto\view\FrmProdutos$9.class
 br\com\projeto\view\FrmVendas$14.class
 br\com\projeto\view\FrmLogin$1.class
 br\com\projeto\view\FrmProdutos$12.class
+br\com\projeto\view\FrmTotalVenda$5.class
 br\com\projeto\view\FrmPagamentos$10.class
 br\com\projeto\view\FrmLogin.class
 br\com\projeto\view\FrmPagamentos$30.class
@@ -54,6 +55,7 @@ br\com\projeto\model\Vendas.class
 br\com\projeto\view\FrmHistorico$1.class
 br\com\projeto\view\FrmPagamentos$6.class
 br\com\projeto\view\FrmFornecedores$12.class
+br\com\projeto\view\FrmTotalVenda$4.class
 br\com\projeto\view\FrmDetalheVenda$5.class
 br\com\projeto\model\Utilitarios.class
 br\com\projeto\model\ItemVenda.class
@@ -107,6 +109,7 @@ br\com\projeto\view\FrmPagamentos$13.class
 br\com\projeto\view\FrmProdutos$13.class
 br\com\projeto\view\FrmMenu$1.class
 br\com\projeto\view\FrmFornecedores$5.class
+br\com\projeto\view\FrmTotalVenda$1.class
 br\com\projeto\view\FrmProdutos$8.class
 br\com\projeto\view\FrmPagamentos$2.class
 br\com\projeto\view\FrmFuncionarios$25.class
@@ -145,6 +148,7 @@ br\com\projeto\view\FrmFuncionarios$15.class
 br\com\projeto\view\FrmFornecedores$28.class
 br\com\projeto\view\FrmProdutos$15.class
 br\com\projeto\view\FrmPagamentos$26.class
+br\com\projeto\view\FrmTotalVenda$2.class
 br\com\projeto\model\WebServiceCep$XmlEnums.class
 br\com\projeto\view\FrmPagamentos$32.class
 br\com\projeto\view\FrmHistorico$2.class
@@ -156,6 +160,7 @@ br\com\projeto\view\FrmMenu$4.class
 br\com\projeto\view\FrmFuncionarios$23.class
 br\com\projeto\view\FrmFuncionarios.class
 br\com\projeto\view\FrmFornecedores$2.class
+br\com\projeto\view\FrmTotalVenda$3.class
 br\com\projeto\view\FrmHistorico.class
 br\com\projeto\view\FrmClient$21.class
 br\com\projeto\view\FrmFuncionarios$22.class
@@ -185,6 +190,7 @@ br\com\projeto\view\FrmFuncionarios$21.class
 br\com\projeto\view\FrmProdutos$2.class
 br\com\projeto\view\FrmDetalheVenda$2.class
 br\com\projeto\view\FrmHistorico$4.class
+br\com\projeto\view\FrmTotalVenda.class
 br\com\projeto\view\FrmFuncionarios$11.class
 br\com\projeto\view\FrmPagamentos$17.class
 br\com\projeto\view\FrmVendas$10.class
@@ -196,6 +202,7 @@ br\com\projeto\view\FrmFornecedores$29.class
 br\com\projeto\view\FrmFuncionarios$8.class
 br\com\projeto\view\FrmPagamentos$8.class
 br\com\projeto\view\FrmFornecedores$10.class
+br\com\projeto\view\FrmMenu$6.class
 br\com\projeto\view\FrmProdutos$23.class
 br\com\projeto\view\FrmVendas$5.class
 br\com\projeto\view\FrmVendas$15.class
