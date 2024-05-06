@@ -75,7 +75,7 @@ public class VendasDAO {
     public List<Vendas> listarvendasPorPeriodo(LocalDate data_inicio, LocalDate data_fim) {
         List<Vendas> lista = new ArrayList<>();
         try {
-            String sql = "SELECT v.id, v.data_venda, c.nome, v.total_venda, v.observacoes FROM tb_vendas AS v "
+            String sql = "SELECT v.id, date_format(data_venda, '%d/%m/%Y') as data_formatada, c.nome, v.total_venda, v.observacoes FROM tb_vendas AS v "
                     + "INNER JOIN tb_clientes AS c ON (v.cliente_id = c.id) WHERE v.data_venda BETWEEN ? AND ?";
             PreparedStatement stmt = con.prepareStatement(sql);
             stmt.setString(1, data_inicio.toString());
@@ -87,7 +87,7 @@ public class VendasDAO {
                 Clientes c = new Clientes();
 
                 obj.setId(rs.getInt("id"));
-                obj.setData_venda(rs.getString("data_venda"));
+                obj.setData_venda(rs.getString("data_formatada"));
                 c.setNome(rs.getString("nome"));
                 obj.setTotal_venda(rs.getDouble("total_venda"));
                 obj.setObs(rs.getString("observacoes"));
