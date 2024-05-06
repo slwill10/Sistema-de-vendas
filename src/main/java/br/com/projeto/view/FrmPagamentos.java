@@ -4,11 +4,17 @@
  */
 package br.com.projeto.view;
 
+import br.com.projeto.dao.ItemVendaDAO;
+import br.com.projeto.dao.ProdutosDAO;
 import br.com.projeto.dao.VendasDAO;
 import br.com.projeto.model.Clientes;
+import br.com.projeto.model.ItemVenda;
+import br.com.projeto.model.Produtos;
 import br.com.projeto.model.Vendas;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -17,6 +23,8 @@ import java.util.Date;
 public class FrmPagamentos extends javax.swing.JFrame {
     
     Clientes cliente = new Clientes();
+    
+    DefaultTableModel carrinho;
    
     /**
      * Creates new form FrmPagamentos
@@ -1013,7 +1021,41 @@ public class FrmPagamentos extends javax.swing.JFrame {
         
         objv.setId(dao_v.retornaUltimaVenda());
         
+        // Cadastrando os produtos na tabela itemvendas
+        for(int i = 0; i < carrinho.getRowCount(); i++){
+            
+            
+            int qtd_estoque, qtd_comprada, qtd_atualizada;
+            ProdutosDAO daop = new ProdutosDAO();
+            
+            Produtos objp = new Produtos();
+            ItemVenda item = new ItemVenda();
+            
+            item.setVenda(objv);
+            
+            objp.setId(Integer.parseInt(carrinho.getValueAt(i, 0).toString()));
+            item.setProduto(objp);
+            
+            item.setQtd(Integer.parseInt(carrinho.getValueAt(i, 2).toString()));
+            item.setSubtotal(Double.parseDouble(carrinho.getValueAt(i, 4).toString()));
+            
+            // Baixa no estoque 
+            
+            qtd_estoque = daop.retornaEstoqueAtual(objp.getId());
+            qtd_comprada = Integer.parseInt(carrinho.getValueAt(i, 2).toString());
+            qtd_atualizada = qtd_estoque - qtd_comprada;
+            
+            daop.baixaEstoque(objp.getId(), qtd_atualizada);
+            
+            
+            ItemVendaDAO daoitem = new ItemVendaDAO();
+            
+            daoitem.cadastraItem(item);
+        }
         
+        // ********************************************************************************
+        
+            JOptionPane.showMessageDialog(null, "Venda registrado com sucesso!");
     }//GEN-LAST:event_btnfinalizarActionPerformed
 
     /**

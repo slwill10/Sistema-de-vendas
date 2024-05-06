@@ -10,6 +10,7 @@ import br.com.projeto.model.Produtos;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
@@ -212,6 +213,46 @@ public class ProdutosDAO {
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Error: " + e);
             return null;
+        }
+    }
+    
+    // Método que dá baixa no estoque / Que atualiza o estoque
+    public void baixaEstoque(int id, int qtd_nova){
+        try {
+            String sql = "update tb_produtos set qtd_estoque = ? where id = ?";
+            PreparedStatement stmt = con.prepareStatement(sql);
+            
+            stmt.setInt(1, qtd_nova);
+            stmt.setInt(2, id);
+            stmt.execute();
+            stmt.close();
+            
+        } catch (Exception e) {
+            
+            JOptionPane.showMessageDialog(null, "Erro: " + e);
+        }
+    }
+    
+    // Retorna o estoque atual de um produto
+    public int retornaEstoqueAtual(int id){
+        try {
+            int qtd_estoque = 0;
+            
+            String sql = "select qtd_estoque from tb_produtos where id = ?";
+            PreparedStatement stmt = con.prepareStatement(sql);
+            stmt.setInt(1, id);
+            
+            ResultSet rs = stmt.executeQuery();
+            
+            if(rs.next()){
+                
+                qtd_estoque = (rs.getInt("qtd_estoque"));
+            }
+            
+            return qtd_estoque;
+            
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
         }
     }
 

@@ -67,7 +67,7 @@ public class FrmVendas extends javax.swing.JFrame {
         txtqtd = new javax.swing.JTextField();
         jPanel4 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tabelaItems = new javax.swing.JTable();
+        tbItemsvendas = new javax.swing.JTable();
         jPanel6 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
         txtvenda = new javax.swing.JTextField();
@@ -322,7 +322,7 @@ public class FrmVendas extends javax.swing.JFrame {
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder("Carrinho de compras"));
 
-        tabelaItems.setModel(new javax.swing.table.DefaultTableModel(
+        tbItemsvendas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -330,7 +330,7 @@ public class FrmVendas extends javax.swing.JFrame {
                 "Código", "Produto", "Qtd", "Preço", "Subtotal"
             }
         ));
-        jScrollPane1.setViewportView(tabelaItems);
+        jScrollPane1.setViewportView(tbItemsvendas);
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -498,7 +498,7 @@ public class FrmVendas extends javax.swing.JFrame {
         total += subtotal;
         txtvenda.setText(String.valueOf(total));
         
-        carrinho = (DefaultTableModel) tabelaItems.getModel();
+        carrinho = (DefaultTableModel) tbItemsvendas.getModel();
         
         carrinho.addRow(new Object[]{
             txtcodigo.getText(),
@@ -538,6 +538,8 @@ public class FrmVendas extends javax.swing.JFrame {
         
         FrmPagamentos telap = new FrmPagamentos();
         telap.txttotal.setText(String.valueOf(total));
+        
+        telap.carrinho = carrinho;
         telap.cliente = obj;
         telap.setVisible(true);
         this.dispose();
@@ -644,7 +646,7 @@ public class FrmVendas extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable tabelaItems;
+    private javax.swing.JTable tbItemsvendas;
     private javax.swing.JTextField txtcodigo;
     private javax.swing.JFormattedTextField txtcpf;
     private javax.swing.JTextField txtdata;
