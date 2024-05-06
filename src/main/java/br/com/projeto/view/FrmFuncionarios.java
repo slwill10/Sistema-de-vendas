@@ -689,7 +689,7 @@ public class FrmFuncionarios extends javax.swing.JFrame {
                     .addComponent(jButton1))
                 .addGap(32, 32, 32)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(367, Short.MAX_VALUE))
+                .addContainerGap(145, Short.MAX_VALUE))
             .addGroup(painel_funcionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(painel_funcionariosLayout.createSequentialGroup()
                     .addGap(270, 270, 270)

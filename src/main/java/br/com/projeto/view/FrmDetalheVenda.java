@@ -278,10 +278,10 @@ public class FrmDetalheVenda extends javax.swing.JFrame {
     private javax.swing.JSpinner jSpinner1;
     private javax.swing.JPanel tabelahistorico;
     private javax.swing.JTable tabelaitensvendido;
-    private javax.swing.JTextField txtcliente;
-    private javax.swing.JTextField txtdatavenda;
+    public javax.swing.JTextField txtcliente;
+    public javax.swing.JTextField txtdatavenda;
     private javax.swing.JTextField txtnome;
-    private javax.swing.JTextArea txtobsvenda;
-    private javax.swing.JTextField txttotalvenda;
+    public javax.swing.JTextArea txtobsvenda;
+    public javax.swing.JTextField txttotalvenda;
     // End of variables declaration//GEN-END:variables
 }

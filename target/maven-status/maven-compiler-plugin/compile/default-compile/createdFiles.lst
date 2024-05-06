@@ -54,6 +54,7 @@ br\com\projeto\model\Vendas.class
 br\com\projeto\view\FrmHistorico$1.class
 br\com\projeto\view\FrmPagamentos$6.class
 br\com\projeto\view\FrmFornecedores$12.class
+br\com\projeto\view\FrmDetalheVenda$5.class
 br\com\projeto\model\Utilitarios.class
 br\com\projeto\model\ItemVenda.class
 br\com\projeto\view\FrmPagamentos$16.class
@@ -67,6 +68,7 @@ br\com\projeto\view\FrmPagamentos$14.class
 br\com\projeto\view\FrmPagamentos$5.class
 br\com\projeto\view\FrmMenu.class
 br\com\projeto\dao\FuncionariosDAO.class
+br\com\projeto\view\FrmDetalheVenda.class
 br\com\projeto\view\FrmProdutos.class
 br\com\projeto\view\FrmProdutos$11.class
 br\com\projeto\view\FrmMenu$3.class
@@ -131,6 +133,7 @@ br\com\projeto\view\FrmClient$13.class
 br\com\projeto\view\FrmVendas$17.class
 br\com\projeto\view\FrmPagamentos$4.class
 br\com\projeto\model\Fornecedores.class
+br\com\projeto\view\FrmDetalheVenda$3.class
 br\com\projeto\view\FrmHistorico$3.class
 br\com\projeto\view\FrmProdutos$1.class
 br\com\projeto\view\FrmClient$26.class
@@ -145,6 +148,7 @@ br\com\projeto\view\FrmPagamentos$26.class
 br\com\projeto\model\WebServiceCep$XmlEnums.class
 br\com\projeto\view\FrmPagamentos$32.class
 br\com\projeto\view\FrmHistorico$2.class
+br\com\projeto\view\FrmDetalheVenda$4.class
 br\com\projeto\view\FrmClient$9.class
 br\com\projeto\model\WebServiceCep$Xml$7.class
 br\com\projeto\view\FrmFuncionarios$16.class
@@ -169,6 +173,7 @@ br\com\projeto\view\FrmFornecedores$8.class
 br\com\projeto\view\FrmFornecedores$1.class
 br\com\projeto\view\FrmFornecedores$23.class
 br\com\projeto\view\FrmFuncionarios$6.class
+br\com\projeto\view\FrmHistorico$7.class
 br\com\projeto\dao\ItemVendaDAO.class
 br\com\projeto\view\FrmPagamentos$21.class
 br\com\projeto\view\FrmMenu$5.class
@@ -178,6 +183,7 @@ br\com\projeto\view\FrmClient$17.class
 br\com\projeto\view\FrmFornecedores$26.class
 br\com\projeto\view\FrmFuncionarios$21.class
 br\com\projeto\view\FrmProdutos$2.class
+br\com\projeto\view\FrmDetalheVenda$2.class
 br\com\projeto\view\FrmHistorico$4.class
 br\com\projeto\view\FrmFuncionarios$11.class
 br\com\projeto\view\FrmPagamentos$17.class
@@ -205,6 +211,7 @@ br\com\projeto\view\FrmClient$25.class
 br\com\projeto\view\FrmVendas$4.class
 br\com\projeto\view\FrmProdutos$3.class
 br\com\projeto\view\FrmFuncionarios$13.class
+br\com\projeto\view\FrmDetalheVenda$1.class
 br\com\projeto\view\FrmPagamentos$25.class
 br\com\projeto\view\FrmClient$18.class
 br\com\projeto\view\FrmFornecedores$27.class
