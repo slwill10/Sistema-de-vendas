@@ -17,8 +17,7 @@ import java.util.Date;
 public class FrmPagamentos extends javax.swing.JFrame {
     
     Clientes cliente = new Clientes();
-    
-
+   
     /**
      * Creates new form FrmPagamentos
      */
@@ -891,101 +890,19 @@ public class FrmPagamentos extends javax.swing.JFrame {
     }//GEN-LAST:event_btnNovoActionPerformed
 
     private void BtnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSalvarActionPerformed
-        // Botão salvar
 
-        // Tratamento de erro caso a pessoa digite algo que não seja número.
-//        String numeroStr = txtnumero.getText();
-//        int numero = 0;
-//        try {
-//            numero = Integer.parseInt(numeroStr);
-//        } catch (NumberFormatException e) {
-//            JOptionPane.showMessageDialog(null, "Por favor, insira um número válido para o numero.", "Erro", JOptionPane.ERROR_MESSAGE);
-//            return;
-//        }
-//
-//        Clientes obj = new Clientes();
-//        obj.setNome(txtnome.getText());
-//        obj.setRg(txtrg.getText());
-//        obj.setCpf(txtcpf.getText());
-//        obj.setEmail(txtemail.getText());
-//        obj.setTelefone(txttelefone.getText());
-//        obj.setCelular(txtcelular.getText());
-//        obj.setCep(txtcep.getText());
-//        obj.setEndereco(txtendereco.getText());
-//        obj.setNumero(Integer.parseInt(txtnumero.getText()));
-//        obj.setComplemento(txtcomplemento.getText());
-//        obj.setBairro(txtbairro.getText());
-//        obj.setCidade(txtcidade.getText());
-//        obj.setUf(cbuf.getSelectedItem().toString());
-//
-//        ClientesDAO dao = new ClientesDAO();
-//        dao.cadastrarCliente(obj);
-//
-//        new Utilitarios().limpaTela(painel_dados);
     }//GEN-LAST:event_BtnSalvarActionPerformed
 
     private void BtnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEditarActionPerformed
-        // Botão editar
-
-//        Clientes obj = new Clientes();
-//
-//        obj.setNome(txtnome.getText());
-//        obj.setRg(txtrg.getText());
-//        obj.setCpf(txtcpf.getText());
-//        obj.setEmail(txtemail.getText());
-//        obj.setTelefone(txttelefone.getText());
-//        obj.setCelular(txtcelular.getText());
-//        obj.setCep(txtcep.getText());
-//        obj.setEndereco(txtendereco.getText());
-//        obj.setNumero(Integer.parseInt(txtnumero.getText()));
-//        obj.setComplemento(txtcomplemento.getText());
-//        obj.setBairro(txtbairro.getText());
-//        obj.setCidade(txtcidade.getText());
-//        obj.setUf(cbuf.getSelectedItem().toString());
-//        obj.setId(Integer.parseInt(txtcodigo.getText()));
-//
-//        ClientesDAO dao = new ClientesDAO();
-//        dao.alterarCliente(obj);
-//
-//        new Utilitarios().limpaTela(painel_dados);
+        
     }//GEN-LAST:event_BtnEditarActionPerformed
 
     private void BtnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnExcluirActionPerformed
-        // botão excluir
 
-//        Clientes obj = new Clientes();
-//
-//        obj.setId(Integer.parseInt(txtcodigo.getText()));
-//
-//        ClientesDAO dao = new ClientesDAO();
-//        dao.excluirCliente(obj);
-//
-//        new Utilitarios().limpaTela(painel_dados);
     }//GEN-LAST:event_BtnExcluirActionPerformed
 
     private void btnbuscaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbuscaActionPerformed
-        // btn buscar cliente por nome
-//
-//        String nome = txtnome.getText();
-//        Clientes obj = new Clientes();
-//        ClientesDAO dao = new ClientesDAO();
-//
-//        obj = dao.consultaPorNome(nome);
-//
-//        // Exibir os dados do obj nos campos de texto
-//        txtcodigo.setText(String.valueOf(obj.getId()));
-//        txtnome.setText(obj.getNome());
-//        txtrg.setText(obj.getRg());
-//        txtemail.setText(obj.getEmail());
-//        txttelefone.setText(obj.getTelefone());
-//        txtcelular.setText(obj.getCelular());
-//        txtcep.setText(obj.getCep());
-//        txtendereco.setText(obj.getEndereco());
-//        txtnumero.setText(String.valueOf(obj.getNumero()));
-//        txtcomplemento.setText(obj.getComplemento());
-//        txtbairro.setText(obj.getBairro());
-//        txtcidade.setText(obj.getCidade());
-//        cbuf.setSelectedItem(obj.getUf());
+       
     }//GEN-LAST:event_btnbuscaActionPerformed
 
     private void txtpesquisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtpesquisaActionPerformed
@@ -993,33 +910,7 @@ public class FrmPagamentos extends javax.swing.JFrame {
     }//GEN-LAST:event_txtpesquisaActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // Pesquisa por nome
-
-//        String nome = "%" + txtpesquisa.getText() + "%";
-//
-//        ClientesDAO dao = new ClientesDAO();
-//        List<Clientes> lista = dao.buscarClientePorNome(nome);
-//        DefaultTableModel dados = (DefaultTableModel) tabelaClientes.getModel();
-//        dados.setNumRows(0);
-//
-//        for (Clientes c : lista) {
-//            dados.addRow(new Object[]{
-//                c.getId(),
-//                c.getNome(),
-//                c.getRg(),
-//                c.getCpf(),
-//                c.getEmail(),
-//                c.getTelefone(),
-//                c.getCelular(),
-//                c.getCep(),
-//                c.getEndereco(),
-//                c.getNumero(),
-//                c.getComplemento(),
-//                c.getBairro(),
-//                c.getCidade(),
-//                c.getUf()
-//            });
-//        }
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void tabelaClientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaClientesMouseClicked
@@ -1041,11 +932,11 @@ public class FrmPagamentos extends javax.swing.JFrame {
     }//GEN-LAST:event_tabelaClientesMouseClicked
 
     private void btnNovo1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovo1ActionPerformed
-//        new Utilitarios().limpaTela(painel_dados);
+
     }//GEN-LAST:event_btnNovo1ActionPerformed
 
     private void BtnSalvar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSalvar1ActionPerformed
-//        new Utilitarios().limpaTela(painel_dados);
+
     }//GEN-LAST:event_BtnSalvar1ActionPerformed
 
     private void BtnEditar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEditar1ActionPerformed
@@ -1053,7 +944,7 @@ public class FrmPagamentos extends javax.swing.JFrame {
     }//GEN-LAST:event_BtnEditar1ActionPerformed
 
     private void BtnExcluir1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnExcluir1ActionPerformed
-//        new Utilitarios().limpaTela(painel_dados);
+
     }//GEN-LAST:event_BtnExcluir1ActionPerformed
 
     private void painel_clientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_painel_clientesMouseClicked
@@ -1065,8 +956,7 @@ public class FrmPagamentos extends javax.swing.JFrame {
     }//GEN-LAST:event_jTabbedPane1MouseClicked
 
     private void jFrame1formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_jFrame1formWindowActivated
-        // Carrega a lista
-//        listar();
+
     }//GEN-LAST:event_jFrame1formWindowActivated
 
     private void txtdinheiroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtdinheiroActionPerformed
