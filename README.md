@@ -113,9 +113,9 @@ Após configurar o banco de dados, siga estes passos para executar o sistema:
 2. Abra o projeto em sua IDE Java preferida.
 3. Compile e execute o projeto.
 
-## Funcionalidades
-
+# Funcionalidades
 Funcionalidades Principais:
+
 ## Cadastro de Usuário:
 Permite a inserção de novos usuários no sistema.
 
