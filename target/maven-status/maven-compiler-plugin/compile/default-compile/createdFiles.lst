@@ -210,6 +210,7 @@ br\com\projeto\model\Produtos.class
 br\com\projeto\dao\FornecedoresDAO.class
 br\com\projeto\view\FrmPagamentos$31.class
 br\com\projeto\view\FrmFornecedores$30.class
+br\com\projeto\view\FrmMenu$7.class
 br\com\projeto\view\FrmPagamentos$19.class
 br\com\projeto\view\FrmVendas$12.class
 br\com\projeto\view\FrmClient$19.class
@@ -221,6 +222,7 @@ br\com\projeto\view\FrmFuncionarios$13.class
 br\com\projeto\view\FrmDetalheVenda$1.class
 br\com\projeto\view\FrmPagamentos$25.class
 br\com\projeto\view\FrmClient$18.class
+br\com\projeto\view\FrmMenu$8.class
 br\com\projeto\view\FrmFornecedores$27.class
 br\com\projeto\view\FrmClient$24.class
 br\com\projeto\view\FrmFuncionarios$14.class

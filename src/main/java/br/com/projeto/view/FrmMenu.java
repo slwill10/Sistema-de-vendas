@@ -7,6 +7,7 @@ package br.com.projeto.view;
 import java.awt.Graphics;
 import java.awt.Image;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -200,12 +201,22 @@ public class FrmMenu extends javax.swing.JFrame {
         jMenu11.setText("Configurações");
 
         jMenuItem9.setText("Trocar de usuário");
+        jMenuItem9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem9ActionPerformed(evt);
+            }
+        });
         jMenu11.add(jMenuItem9);
 
         jMenuBar1.add(jMenu11);
 
         jMenu12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/sair.png"))); // NOI18N
         jMenu12.setText("Sair");
+        jMenu12.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu12MouseClicked(evt);
+            }
+        });
         jMenuBar1.add(jMenu12);
 
         setJMenuBar(jMenuBar1);
@@ -246,6 +257,23 @@ public class FrmMenu extends javax.swing.JFrame {
     private void menu_controlevendasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_controlevendasActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_menu_controlevendasActionPerformed
+
+    private void jMenuItem9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem9ActionPerformed
+        // Trocar de usuário 
+        FrmLogin telaLogin = new FrmLogin();
+        this.dispose();
+        telaLogin.setVisible(true);
+    }//GEN-LAST:event_jMenuItem9ActionPerformed
+
+    private void jMenu12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu12MouseClicked
+        // Para sair 
+        int op;
+        op = JOptionPane.showConfirmDialog(null, "Você tem certeza que deseja sair? ");
+        
+        if(op == 0){
+            System.exit(0);
+        } 
+    }//GEN-LAST:event_jMenu12MouseClicked
 
     /**
      * @param args the command line arguments
