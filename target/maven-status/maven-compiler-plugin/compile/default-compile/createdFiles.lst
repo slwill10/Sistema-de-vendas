@@ -33,6 +33,7 @@ br\com\projeto\view\FrmProdutos$18.class
 br\com\projeto\view\FrmPagamentos$29.class
 br\com\projeto\view\FrmPagamentos$22.class
 br\com\projeto\view\FrmClient$22.class
+br\com\projeto\view\FrmMenu$10.class
 br\com\projeto\model\WebServiceCep$Xml.class
 br\com\projeto\view\FrmFornecedores$11.class
 br\com\projeto\view\FrmFornecedores$9.class
@@ -169,6 +170,7 @@ br\com\projeto\view\FrmFuncionarios$29.class
 br\com\projeto\view\FrmFuncionarios$10.class
 br\com\projeto\view\FrmProdutos$21.class
 br\com\projeto\view\FrmPagamentos$33.class
+br\com\projeto\view\FrmMenu$11.class
 br\com\projeto\view\FrmProdutos$16.class
 br\com\projeto\view\FrmFuncionarios$34.class
 br\com\projeto\dao\ProdutosDAO.class
@@ -200,6 +202,7 @@ br\com\projeto\view\FrmVendas$2.class
 br\com\projeto\view\FrmFornecedores$19.class
 br\com\projeto\view\FrmFornecedores$29.class
 br\com\projeto\view\FrmFuncionarios$8.class
+br\com\projeto\view\FrmMenu$9.class
 br\com\projeto\view\FrmPagamentos$8.class
 br\com\projeto\view\FrmFornecedores$10.class
 br\com\projeto\view\FrmMenu$6.class

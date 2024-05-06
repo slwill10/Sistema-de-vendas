@@ -36,7 +36,8 @@ public class FrmLogin extends javax.swing.JFrame {
         txtsenha = new javax.swing.JPasswordField();
         btnentrar = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Login");
         setBackground(new java.awt.Color(255, 255, 255));
 
         jTextField1.setBackground(new java.awt.Color(0, 0, 255));
