@@ -116,43 +116,43 @@ Após configurar o banco de dados, siga estes passos para executar o sistema:
 # Funcionalidades
 Funcionalidades Principais:
 
-## Cadastro de Usuário:
+## Cadastro de Usuário
 Permite a inserção de novos usuários no sistema.
 
-## Consulta de Usuário:
+## Consulta de Usuário
 Facilita a busca e visualização dos detalhes dos usuários cadastrados.
 
-## Detalhes da Venda:
+## Detalhes da Venda
 Oferece informações detalhadas sobre as vendas realizadas, incluindo itens vendidos e valores.
 
-## Cadastro de Fornecedor:
+## Cadastro de Fornecedor
 Permite o cadastro de novos fornecedores para os produtos.
 
-## Consulta de Fornecedor:
+## Consulta de Fornecedor
 Permite visualizar os detalhes dos fornecedores cadastrados.
 
-## Cadastro de Funcionário:
+## Cadastro de Funcionário
 Permite a inserção de novos funcionários no sistema.
 
-## Consulta de Funcionários:
+## Consulta de Funcionários
 Facilita a busca e visualização dos detalhes dos funcionários cadastrados.
 
-## Histórico de Vendas:
+## Histórico de Vendas
 Mantém um registro histórico de todas as vendas realizadas.
 
-## Tela de Login:
+## Tela de Login
 Interface para autenticação de usuários antes de acessar o sistema.
 
-## Menu:
+## Menu
 Navegação intuitiva para acessar as diferentes funcionalidades do sistema.
 
 ## Tela para Pagamento:
 Permite o registro e processamento de pagamentos das vendas.
 
-## Cadastro de Venda:
+## Cadastro de Venda
 Funcionalidade para registrar novas vendas no sistema.
 
-## Total de Vendas no Mês:
+## Total de Vendas no Mês
 Calcula e exibe o total de vendas realizadas em um determinado mês.
 
 ## Contribuição
